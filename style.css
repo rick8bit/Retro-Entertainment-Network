@@ -390,3 +390,56 @@ body,
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* REN ANIMATED TAGLINE */
+
+.tagline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  overflow: hidden;
+  padding: 8px 0;
+}
+
+.tagline-forward,
+.tagline-back {
+  display: block;
+  opacity: 0;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+.tagline-forward {
+  transform: translateX(-100vw);
+  animation-name: moveForward;
+}
+
+.tagline-back {
+  transform: translateX(100vw);
+  animation-name: lookBack;
+  animation-delay: 0.3s;
+}
+
+@keyframes moveForward {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes lookBack {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tagline-forward,
+  .tagline-back {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
+}
