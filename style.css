@@ -56,13 +56,16 @@ main {
   padding: 28px 0 12px;
 }
 
+.
 .ren-logo {
   display: block;
-  width: 100%;
-  max-width: 440px;
+  width: 220px;
+  max-width: 80%;
   height: auto;
-  margin: 0 auto 25px;
+  margin: 0 auto 20px;
   border-radius: 10px;
+}
+
 }
 
 h1, h2 {
