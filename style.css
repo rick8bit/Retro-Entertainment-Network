@@ -171,38 +171,62 @@ footer p:last-child {
 }
 
 
-/* REN IMAGE SIZE FIX */
 
-.ren-logo {
+/* REN MOBILE AND DESKTOP LAYOUT REPAIR */
+
+html, body {
   width: 100%;
-  max-width: 250px;
-  height: auto;
-  margin: 0 auto 20px;
+  max-width: 100%;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+main, .hero, .channels, .intro {
+  width: 100%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero img.ren-logo {
+  display: block !important;
+  width: 250px !important;
+  max-width: 80vw !important;
+  height: auto !important;
+  object-fit: contain !important;
+  margin: 20px auto !important;
+}
+
+.navbar {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  width: 100%;
 }
 
 .tv-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 15px;
-  max-width: 750px;
-  margin: 25px auto;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  max-width: 750px !important;
+  margin: 25px auto !important;
 }
 
 .tv-card img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
 }
 
 @media (max-width: 650px) {
-  .ren-logo {
-    max-width: 220px;
+  .hero img.ren-logo {
+    width: 200px !important;
   }
 
   .tv-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-    max-width: 380px;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    max-width: 360px !important;
+    gap: 10px !important;
   }
 }
