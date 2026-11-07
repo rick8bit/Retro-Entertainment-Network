@@ -71,9 +71,95 @@ Retro Entertainment Network — Moving Forward While Looking Back.
 </main>
 
 <footer>
-  <p>RETRO ENTERTAINMENT NETWORK</p>
-  <p>Moving Forward While Looking Back</p>
-</footer>
+<!-- REN TIME CIRCUITS -->
+<section class="ren-time-circuits">
 
+  <h2>REN TIME CIRCUITS</h2>
+
+  <div class="time-machine">
+
+    <!-- DESTINATION -->
+    <div class="time-row destination">
+      <div class="time-heading">DESTINATION TIME</div>
+
+      <div class="time-display">
+        <div class="time-unit">
+          <span class="time-label">MONTH</span>
+          <span class="led-number">01</span>
+        </div>
+
+        <div class="time-unit">
+          <span class="time-label">DAY</span>
+          <span class="led-number">01</span>
+        </div>
+
+        <div class="time-unit">
+          <span class="time-label">YEAR</span>
+          <span class="led-number">1985</span>
+        </div>
+
+        <div class="time-unit">
+          <span class="time-label">24 HR</span>
+          <span class="led-number">00:00</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRESENT -->
+    <div class="time-row present">
+      <div class="time-heading">PRESENT TIME</div>
+
+      <div class="time-display">
+        <div class="time-unit">
+          <span class="time-label">MONTH</span>
+          <span class="led-number" id="ren-month">--</span>
+        </div>
+
+        <div class="time-unit">
+          <span class="time-label">DAY</span>
+          <span class="led-number" id="ren-day">--</span>
+        </div>
+
+        <div class="time-unit">
+          <span class="time-label">YEAR</span>
+          <span class="led-number" id="ren-year">----</span>
+        </div>
+
+        <div class="time-unit">
+          <span class="time-label">24 HR</span>
+          <span class="led-number" id="ren-clock">--:--</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<script>
+function updateRENClock() {
+  const now = new Date();
+
+  const pad = number =>
+    String(number).padStart(2, '0');
+
+  document.getElementById('ren-month').textContent =
+    pad(now.getMonth() + 1);
+
+  document.getElementById('ren-day').textContent =
+    pad(now.getDate());
+
+  document.getElementById('ren-year').textContent =
+    now.getFullYear();
+
+  document.getElementById('ren-clock').textContent =
+    pad(now.getHours()) + ':' +
+    pad(now.getMinutes());
+}
+
+updateRENClock();
+setInterval(updateRENClock, 1000);
+</script>
+ 
 </body>
 </html>
