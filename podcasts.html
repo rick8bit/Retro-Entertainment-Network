@@ -1,333 +1,304 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Podcasts · Retro Rumble Gridiron Alliance</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Podcasts | Retro Entertainment Network</title>
+  <link rel="stylesheet" href="style.css">
+
   <style>
-    :root {
-      --accent: #ff4dd8;
-      --accent2: #3b82f6;
-      --accent3: #22c55e;
-      --bg: #000000;
-    }
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: radial-gradient(circle at top, #020617 0, #000 55%, #000 100%);
-      color: #ffffff;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-    a {
-      color: inherit;
-      text-decoration: none;
+    .podcast-page {
+      padding: 35px 14px 55px;
     }
 
-    /* top bar */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: #020617;
-      border-bottom: 2px solid var(--accent2);
-      box-shadow: 0 0 18px rgba(59,130,246,0.6);
-      animation: glow 3s ease-in-out infinite alternate;
-    }
-    @keyframes glow {
-      from { box-shadow: 0 0 10px rgba(59,130,246,0.4); }
-      to   { box-shadow: 0 0 22px rgba(236,72,153,0.9); }
-    }
-    .nav-inner {
-      max-width: 960px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 8px 12px;
-      gap: 8px;
-    }
-    .nav-left {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-    }
-    .nav-chip {
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--accent2);
-      background: linear-gradient(120deg, #0f172a, #020617);
-    }
-    .nav-links {
-      display: flex;
-      gap: 10px;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-    .nav-links a {
-      padding: 4px 6px;
-      border-radius: 4px;
-    }
-    .nav-links a:hover {
-      background: rgba(59,130,246,0.25);
-    }
-    .nav-links a.active {
-      background: rgba(236,72,153,0.3);
-      border-bottom: 2px solid var(--accent);
-    }
-
-    .nav-tag {
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      padding: 4px 8px;
-      border-radius: 4px;
-      border: 1px solid var(--accent3);
-      color: var(--accent3);
-      background: #022c22;
-      white-space: nowrap;
-    }
-
-    .wrapper {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 24px 16px 40px;
-    }
-
-    header {
+    .podcast-heading {
       text-align: center;
-      margin: 18px 0 26px;
+      margin-bottom: 35px;
     }
-    header h1 {
-      margin: 0 0 6px;
-      font-size: 1.6rem;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      color: transparent;
+
+    .podcast-heading h1 {
+      color: #fff;
+      text-shadow: 0 0 12px #ff29d8;
     }
-    header p {
-      margin: 0;
-      font-size: 0.9rem;
-      color: #9ca3af;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
+
+    .podcast-subtitle {
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      color: #00eaff;
+      text-align: center;
     }
 
     .podcast-grid {
       display: grid;
-      grid-template-columns: minmax(0,1fr);
-      gap: 20px;
+      grid-template-columns: 1fr;
+      gap: 22px;
+      max-width: 950px;
+      margin: 0 auto;
     }
-    @media (min-width: 768px) {
+
+    @media (min-width: 800px) {
       .podcast-grid {
-        grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+        grid-template-columns: 1.2fr 0.8fr;
       }
     }
 
-    .card {
-      background: #020617;
-      border-radius: 18px;
-      border: 1px solid #1f2937;
-      box-shadow: 0 0 25px rgba(0,0,0,0.9);
-      padding: 18px 16px 18px;
-    }
-    .card h2 {
-      margin: 0 0 10px;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--accent2);
-    }
-    .card p {
-      margin: 0 0 10px;
-      font-size: 0.94rem;
-      line-height: 1.7;
-      color: #e5e7eb;
-    }
-
-    .logo-wrap {
-      text-align: center;
-      margin-bottom: 14px;
-    }
-    .logo-wrap img {
-      max-width: 260px;
-      width: 80%;
+    .podcast-card {
+      min-width: 0;
+      padding: 22px;
+      background: #090914;
+      border: 1px solid #ff29d8;
       border-radius: 12px;
-      border: 2px solid #4b5563;
-      box-shadow: 0 0 18px rgba(0,0,0,0.9);
+      box-shadow: 0 0 15px rgba(255,41,216,0.12);
     }
 
-    .platforms-title {
-      margin-top: 8px;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #9ca3af;
+    .podcast-card h2 {
+      font-size: 12px;
+      line-height: 1.9;
+      margin: 0 0 22px;
     }
 
-    .platform-list {
+    .podcast-card p {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .podcast-artwork {
+      text-align: center;
+      margin: 20px auto;
+    }
+
+    .podcast-artwork img {
+      display: block;
+      width: 220px;
+      max-width: 100%;
+      height: auto;
+      margin: auto;
+      border-radius: 10px;
+    }
+
+    .podcast-player {
+      margin: 18px 0;
+    }
+
+    .podcast-links {
       list-style: none;
       padding: 0;
-      margin: 10px 0 0;
-      font-size: 0.9rem;
-    }
-    .platform-list li {
-      margin-bottom: 6px;
-    }
-    .platform-list a {
-      color: #93c5fd;
-    }
-    .platform-list a:hover {
-      text-decoration: underline;
+      margin: 15px 0;
     }
 
-    .tag-pills {
+    .podcast-links li {
+      margin-bottom: 14px;
+    }
+
+    .podcast-links a {
+      color: #00eaff;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      overflow-wrap: anywhere;
+    }
+
+    .podcast-links a:hover {
+      color: #ff39db;
+    }
+
+    .podcast-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-      margin-top: 8px;
-    }
-    .pill {
-      padding: 4px 9px;
-      border-radius: 999px;
-      border: 1px solid #374151;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #d1d5db;
-      background: #030712;
-    }
-    .pill.hot {
-      border-color: var(--accent);
-      color: var(--accent);
+      margin-top: 20px;
     }
 
-    footer {
-      text-align: center;
-      margin-top: 28px;
-      font-size: 0.75rem;
-      color: #9ca3af;
-      opacity: 0.7;
+    .podcast-tags span {
+      border: 1px solid #ff29d8;
+      color: #fff;
+      border-radius: 20px;
+      padding: 5px 10px;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Retro nav -->
-  <div class="nav">
-    <div class="nav-inner">
-      <div class="nav-left">
-        <span class="nav-chip">RRGA</span>
-        <span>ALT FOOTBALL • PODCAST HUB</span>
-      </div>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="index.html#play">Play</a>
-        <a href="podcasts.html" class="active">Podcasts</a>
-      </div>
-      <div class="nav-tag">RICK8BIT</div>
-    </div>
-  </div>
+<header>
+  <nav class="navbar">
+    <a href="index.html">HOME</a>
+    <a href="podcasts.html" class="active">PODCASTS</a>
+    <a href="watch.html">WATCH</a>
+    <a href="games.html">GAMES</a>
+    <a href="news.html">NEWS</a>
+    <a href="links.html">LINKS</a>
+  </nav>
+</header>
 
-  <div class="wrapper">
-    <header>
-      <h1>Podcasts</h1>
-      <p>Wrestling · Football · Retro Stories</p>
-    </header>
+<main>
+  <div class="podcast-page">
+
+    <div class="podcast-heading">
+      <h1>PODCASTS</h1>
+      <p class="podcast-subtitle">
+        Wrestling • Football • Retro Stories
+      </p>
+    </div>
 
     <div class="podcast-grid">
-      <!-- Left: Booking Like A Mark main card -->
-      <section class="card">
-        <h2>Booking Like A Mark</h2>
 
-        <div class="logo-wrap">
-          <!-- use your RRGA art for now; can swap to show logo later -->
-          <img src="20250624_172803.jpg" alt="Booking Like A Mark podcast artwork">
+      <section class="podcast-card">
+        <h2>BOOKING LIKE A MARK</h2>
+
+        <div class="podcast-artwork">
+          <img src="20250624_172803.jpg"
+               alt="Booking Like A Mark podcast artwork"
+               onerror="this.style.display='none'">
         </div>
 
         <p>
-          Rewriting past storylines. Creating new matches and PLEs. Making original
-          gimmicks and characters. It’s not just fantasy booking — this is
+          Rewriting past storylines. Creating new matches
+          and PLEs. Making original gimmicks and characters.
+          It's not just fantasy booking — this is
           <strong>Booking Like A Mark</strong>.
         </p>
 
-        <p class="platforms-title">Listen on your favorite platform:</p>
+        <p><strong>Listen on your favorite platform:</strong></p>
 
-        <!-- Spotify embed -->
-        <div style="margin:10px 0 14px;">
-          <iframe style="border-radius:12px"
-                  src="https://open.spotify.com/embed/show/0GhMJNwUJNi4g88QSQVDs7?utm_source=generator"
-                  width="100%" height="152" frameborder="0"
-                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                  loading="lazy"></iframe>
+        <div class="podcast-player">
+          <iframe
+            style="border-radius:12px"
+            src="https://open.spotify.com/embed/show/0GhMJNwUJNi4g88QSQVDs7?utm_source=generator"
+            width="100%"
+            height="152"
+            frameborder="0"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            title="Booking Like A Mark Spotify Player">
+          </iframe>
         </div>
 
-        <ul class="platform-list">
+        <ul class="podcast-links">
           <li>
-            <a href="https://open.spotify.com/show/0GhMJNwUJNi4g88QSQVDs7" target="_blank" rel="noreferrer">
+            <a href="https://open.spotify.com/show/0GhMJNwUJNi4g88QSQVDs7"
+               target="_blank" rel="noopener noreferrer">
               ▶ Spotify – Booking Like A Mark
-            </a>
-          </li>
-          <li>
-            <!-- replace AMAZON_LINK_HERE with the real Amazon Music show URL -->
-            <a href="AMAZON_LINK_HERE" target="_blank" rel="noreferrer">
-              🎧 Amazon Music – Booking Like A Mark
-            </a>
-          </li>
-          <li>
-            <!-- replace ACAST_LINK_HERE with the real Acast show URL -->
-            <a href="ACAST_LINK_HERE" target="_blank" rel="noreferrer">
-              🎙 Acast – Behind the Booking
             </a>
           </li>
         </ul>
 
-        <div class="tag-pills">
-          <span class="pill hot">Wrestling</span>
-          <span class="pill">Fantasy Booking</span>
-          <span class="pill">Alt Timelines</span>
-          <span class="pill">PLE Rewrites</span>
+        <div class="podcast-tags">
+          <span>Wrestling</span>
+          <span>Fantasy Booking</span>
+          <span>Alt Timelines</span>
+          <span>PLE Rewrites</span>
         </div>
       </section>
 
-      <!-- Right: room for more shows / notes -->
-      <section class="card">
-        <h2>More Shows Coming</h2>
+      <section class="podcast-card">
+        <h2>MORE SHOWS COMING</h2>
+
         <p>
-          This page will grow as the Retro Rumble Gridiron Alliance adds more
-          podcasts and creators — alt-football breakdowns, retro gaming chats,
-          and deep dives into classic shows and movies.
+          The Retro Entertainment Network is growing!
+          From wrestling and alternative football to
+          retro gaming, movies, television, and music,
+          there's always something worth revisiting.
         </p>
+
         <p>
-          Have a show that fits the vibe? Reach out through Rick8bit’s socials
+          Have a show that fits REN?
+          Reach out through Rick8bit's socials
           to be considered for a future feature.
         </p>
 
-        <div class="tag-pills">
-          <span class="pill">Alt Football</span>
-          <span class="pill">Retro Games</span>
-          <span class="pill">Creator Spotlight</span>
+        <div class="podcast-tags">
+          <span>Alt Football</span>
+          <span>Retro Gaming</span>
+          <span>Creator Spotlight</span>
         </div>
       </section>
+
     </div>
-
-    <footer>
-      &copy; <span id="year"></span> Retro Rumble Gridiron Alliance · Suplexes. Pixels. Pick-sixes.
-    </footer>
   </div>
+</main>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+<footer>
+  <section class="ren-time-circuits">
+
+    <h2>Moving Forward While Looking Back</h2>
+
+    <div class="time-machine">
+
+      <div class="time-row destination">
+        <div class="time-heading">DESTINATION TIME</div>
+
+        <div class="time-display">
+          <div class="time-unit">
+            <span class="time-label">MONTH</span>
+            <span class="led-number">01</span>
+          </div>
+          <div class="time-unit">
+            <span class="time-label">DAY</span>
+            <span class="led-number">01</span>
+          </div>
+          <div class="time-unit">
+            <span class="time-label">YEAR</span>
+            <span class="led-number">1985</span>
+          </div>
+          <div class="time-unit">
+            <span class="time-label">24 HR</span>
+            <span class="led-number">00:00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="time-row present">
+        <div class="time-heading">PRESENT TIME</div>
+
+        <div class="time-display">
+          <div class="time-unit">
+            <span class="time-label">MONTH</span>
+            <span class="led-number" id="ren-month">--</span>
+          </div>
+          <div class="time-unit">
+            <span class="time-label">DAY</span>
+            <span class="led-number" id="ren-day">--</span>
+          </div>
+          <div class="time-unit">
+            <span class="time-label">YEAR</span>
+            <span class="led-number" id="ren-year">----</span>
+          </div>
+          <div class="time-unit">
+            <span class="time-label">24 HR</span>
+            <span class="led-number" id="ren-clock">--:--</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</footer>
+
+<script>
+function updateRENClock() {
+  const now = new Date();
+  const pad = number => String(number).padStart(2, '0');
+
+  document.getElementById('ren-month').textContent =
+    pad(now.getMonth() + 1);
+
+  document.getElementById('ren-day').textContent =
+    pad(now.getDate());
+
+  document.getElementById('ren-year').textContent =
+    now.getFullYear();
+
+  document.getElementById('ren-clock').textContent =
+    pad(now.getHours()) + ':' + pad(now.getMinutes());
+}
+
+updateRENClock();
+setInterval(updateRENClock, 1000);
+</script>
+
 </body>
 </html>
