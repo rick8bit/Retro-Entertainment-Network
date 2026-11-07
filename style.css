@@ -358,3 +358,36 @@ main, .hero, .channels, .intro {
     font-size: clamp(11px, 3vw, 16px);
   }
 }
+
+
+/* RESTORE REN PIXEL HEADINGS */
+
+h1,
+h2,
+.ren-time-circuits h2,
+footer p:first-child {
+  font-family: 'Press Start 2P', monospace !important;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: clamp(13px, 3vw, 25px);
+}
+
+h2 {
+  font-size: clamp(12px, 2.4vw, 18px);
+}
+
+.ren-time-circuits h2 {
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* KEEP REGULAR TEXT IN ARIAL */
+
+body,
+.intro p,
+.tagline {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
