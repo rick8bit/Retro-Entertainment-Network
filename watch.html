@@ -504,6 +504,58 @@ const channels = [
   }
 ];
 
+
+async function loadRENProgramming() {
+  try {
+    const response = await fetch(
+      "ren-tv.json?t=" + Date.now(),
+      { cache: "no-store" }
+    );
+
+    if (!response.ok) {
+      throw new Error("Programming unavailable");
+    }
+
+    const data = await response.json();
+
+    const channelHandles = [
+      "rick8bit",
+      "4sidesofthering",
+      "altfbpanel",
+      "vikingwaxpress"
+    ];
+
+    channelHandles.forEach((handle, index) => {
+      const program = data.channels.find(
+        item => item.handle === handle
+      );
+
+      if (!program) return;
+
+      if (/^[a-zA-Z0-9_-]{11}$/.test(program.video)) {
+        channels[index].video = program.video;
+      }
+
+      if (program.title) {
+        channels[index].description =
+          (program.isLive ? "🔴 LIVE NOW — " : "NOW PLAYING — ") +
+          program.title;
+      }
+    });
+
+    if (powerOn && !switching && currentChannel < 4) {
+      showChannel();
+    }
+
+    console.log("REN TV programming loaded!");
+
+  } catch (error) {
+    console.warn("REN TV using backup programming", error);
+  }
+}
+
+loadRENProgramming();
+  
 let currentChannel = 0;
 let powerOn = true;
 let switching = false;
