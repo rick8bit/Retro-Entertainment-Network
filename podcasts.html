@@ -4,12 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Podcasts | Retro Entertainment Network</title>
   <link rel="stylesheet" href="style.css">
 
   <style>
+    /* =====================================
+       REN PODCASTS - NEON YELLOW THEME
+       ===================================== */
+
     .podcast-page {
-      padding: 35px 14px 55px;
+      padding: 35px 0 55px;
+      min-width: 0;
     }
 
     .podcast-heading {
@@ -18,8 +24,10 @@
     }
 
     .podcast-heading h1 {
-      color: #fff;
-      text-shadow: 0 0 12px #ff29d8;
+      color: #FCFD04;
+      text-shadow:
+        0 0 8px rgba(252,253,4,0.8),
+        0 0 20px rgba(252,253,4,0.45);
     }
 
     .podcast-subtitle {
@@ -29,9 +37,11 @@
       text-align: center;
     }
 
+    /* PODCAST CARDS */
+
     .podcast-grid {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0,1fr);
       gap: 22px;
       max-width: 950px;
       margin: 0 auto;
@@ -39,23 +49,30 @@
 
     @media (min-width: 800px) {
       .podcast-grid {
-        grid-template-columns: 1.2fr 0.8fr;
+        grid-template-columns:
+          minmax(0,1.2fr) minmax(0,0.8fr);
       }
     }
 
     .podcast-card {
       min-width: 0;
+      width: 100%;
       padding: 22px;
       background: #090914;
-      border: 1px solid #ff29d8;
+      border: 2px solid #FCFD04;
       border-radius: 12px;
-      box-shadow: 0 0 15px rgba(255,41,216,0.12);
+      box-shadow:
+        0 0 10px rgba(252,253,4,0.25),
+        0 0 22px rgba(252,253,4,0.10);
     }
 
     .podcast-card h2 {
+      color: #FCFD04;
       font-size: 12px;
       line-height: 1.9;
       margin: 0 0 22px;
+      text-shadow:
+        0 0 10px rgba(252,253,4,0.65);
     }
 
     .podcast-card p {
@@ -63,6 +80,8 @@
       font-size: 16px;
       line-height: 1.7;
     }
+
+    /* PODCAST ARTWORK */
 
     .podcast-artwork {
       text-align: center;
@@ -78,9 +97,28 @@
       border-radius: 10px;
     }
 
+    /* SPOTIFY PLAYER */
+
     .podcast-player {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
       margin: 18px 0;
+      overflow: hidden;
+      border-radius: 12px;
     }
+
+    .podcast-player iframe {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      height: 152px;
+      border: 0;
+      border-radius: 12px;
+    }
+
+    /* PODCAST LINKS */
 
     .podcast-links {
       list-style: none;
@@ -100,8 +138,11 @@
     }
 
     .podcast-links a:hover {
-      color: #ff39db;
+      color: #FCFD04;
+      text-shadow: 0 0 8px #FCFD04;
     }
+
+    /* PODCAST TAGS */
 
     .podcast-tags {
       display: flex;
@@ -111,194 +152,251 @@
     }
 
     .podcast-tags span {
-      border: 1px solid #ff29d8;
+      border: 1px solid #FCFD04;
       color: #fff;
       border-radius: 20px;
       padding: 5px 10px;
       font-family: Arial, sans-serif;
       font-size: 12px;
     }
+
+    /* MOBILE ADJUSTMENTS */
+
+    @media (max-width: 650px) {
+      .podcast-page {
+        padding: 30px 0 45px;
+      }
+
+      .podcast-card {
+        padding: 18px 14px;
+      }
+
+      .podcast-card h2 {
+        font-size: 11px;
+      }
+
+      .podcast-card p {
+        font-size: 15px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-<header>
-  <nav class="navbar">
-    <a href="index.html">HOME</a>
-    <a href="podcasts.html" class="active">PODCASTS</a>
-    <a href="watch.html">WATCH</a>
-    <a href="games.html">GAMES</a>
-    <a href="news.html">NEWS</a>
-    <a href="links.html">LINKS</a>
-  </nav>
-</header>
+  <!-- UNIVERSAL REN HEADER -->
 
-<main>
-  <div class="podcast-page">
+  <header>
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="index.html">HOME</a>
+      <a href="rick8bit.html">RICK8BIT</a>
+      <a href="podcasts.html"
+         class="active"
+         aria-current="page">PODCASTS</a>
+      <a href="watch.html">WATCH</a>
+      <a href="news.html">NEWS</a>
+      <a href="games.html">GAMES</a>
+      <a href="links.html">LINKS</a>
+    </nav>
+  </header>
 
-    <div class="podcast-heading">
-      <h1>PODCASTS</h1>
-      <p class="podcast-subtitle">
-        Wrestling • Football • Retro Stories
-      </p>
-    </div>
+  <main>
+    <div class="podcast-page">
 
-    <div class="podcast-grid">
+      <!-- PAGE HEADING -->
 
-      <section class="podcast-card">
-        <h2>BOOKING LIKE A MARK</h2>
-
-        <div class="podcast-artwork">
-          <img src="20250624_172803.jpg"
-               alt="Booking Like A Mark podcast artwork"
-               onerror="this.style.display='none'">
-        </div>
-
-        <p>
-          Rewriting past storylines. Creating new matches
-          and PLEs. Making original gimmicks and characters.
-          It's not just fantasy booking — this is
-          <strong>Booking Like A Mark</strong>.
+      <div class="podcast-heading">
+        <h1>PODCASTS</h1>
+        <p class="podcast-subtitle">
+          Wrestling • Football • Retro Stories
         </p>
-
-        <p><strong>Listen on your favorite platform:</strong></p>
-
-        <div class="podcast-player">
-          <iframe
-            style="border-radius:12px"
-            src="https://open.spotify.com/embed/show/0GhMJNwUJNi4g88QSQVDs7?utm_source=generator"
-            width="100%"
-            height="152"
-            frameborder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy"
-            title="Booking Like A Mark Spotify Player">
-          </iframe>
-        </div>
-
-        <ul class="podcast-links">
-          <li>
-            <a href="https://open.spotify.com/show/0GhMJNwUJNi4g88QSQVDs7"
-               target="_blank" rel="noopener noreferrer">
-              ▶ Spotify – Booking Like A Mark
-            </a>
-          </li>
-        </ul>
-
-        <div class="podcast-tags">
-          <span>Wrestling</span>
-          <span>Fantasy Booking</span>
-          <span>Alt Timelines</span>
-          <span>PLE Rewrites</span>
-        </div>
-      </section>
-
-      <section class="podcast-card">
-        <h2>MORE SHOWS COMING</h2>
-
-        <p>
-          The Retro Entertainment Network is growing!
-          From wrestling and alternative football to
-          retro gaming, movies, television, and music,
-          there's always something worth revisiting.
-        </p>
-
-        <p>
-          Have a show that fits REN?
-          Reach out through Rick8bit's socials
-          to be considered for a future feature.
-        </p>
-
-        <div class="podcast-tags">
-          <span>Alt Football</span>
-          <span>Retro Gaming</span>
-          <span>Creator Spotlight</span>
-        </div>
-      </section>
-
-    </div>
-  </div>
-</main>
-
-<footer>
-  <section class="ren-time-circuits">
-
-    <h2>Moving Forward While Looking Back</h2>
-
-    <div class="time-machine">
-
-      <div class="time-row destination">
-        <div class="time-heading">DESTINATION TIME</div>
-
-        <div class="time-display">
-          <div class="time-unit">
-            <span class="time-label">MONTH</span>
-            <span class="led-number">01</span>
-          </div>
-          <div class="time-unit">
-            <span class="time-label">DAY</span>
-            <span class="led-number">01</span>
-          </div>
-          <div class="time-unit">
-            <span class="time-label">YEAR</span>
-            <span class="led-number">1985</span>
-          </div>
-          <div class="time-unit">
-            <span class="time-label">24 HR</span>
-            <span class="led-number">00:00</span>
-          </div>
-        </div>
       </div>
 
-      <div class="time-row present">
-        <div class="time-heading">PRESENT TIME</div>
+      <div class="podcast-grid">
 
-        <div class="time-display">
-          <div class="time-unit">
-            <span class="time-label">MONTH</span>
-            <span class="led-number" id="ren-month">--</span>
+        <!-- BOOKING LIKE A MARK -->
+
+        <section class="podcast-card">
+
+          <h2>BOOKING LIKE A MARK</h2>
+
+          <div class="podcast-artwork">
+            <img
+              src="20250624_172803.jpg"
+              alt="Booking Like A Mark podcast artwork"
+              onerror="this.parentElement.style.display='none'"
+            >
           </div>
-          <div class="time-unit">
-            <span class="time-label">DAY</span>
-            <span class="led-number" id="ren-day">--</span>
+
+          <p>
+            Rewriting past storylines. Creating new
+            matches and PLEs. Making original gimmicks
+            and characters. It's not just fantasy
+            booking — this is
+            <strong>Booking Like A Mark</strong>.
+          </p>
+
+          <p>
+            <strong>Listen on your favorite platform:</strong>
+          </p>
+
+          <div class="podcast-player">
+            <iframe
+              src="https://open.spotify.com/embed/show/0GhMJNwUJNi4g88QSQVDs7?utm_source=generator"
+              title="Booking Like A Mark Spotify Player"
+              loading="lazy"
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+            </iframe>
           </div>
-          <div class="time-unit">
-            <span class="time-label">YEAR</span>
-            <span class="led-number" id="ren-year">----</span>
+
+          <ul class="podcast-links">
+            <li>
+              <a
+                href="https://open.spotify.com/show/0GhMJNwUJNi4g88QSQVDs7"
+                target="_blank"
+                rel="noopener noreferrer">
+                ▶ Spotify – Booking Like A Mark
+              </a>
+            </li>
+          </ul>
+
+          <div class="podcast-tags">
+            <span>Wrestling</span>
+            <span>Fantasy Booking</span>
+            <span>Alt Timelines</span>
+            <span>PLE Rewrites</span>
           </div>
-          <div class="time-unit">
-            <span class="time-label">24 HR</span>
-            <span class="led-number" id="ren-clock">--:--</span>
+
+        </section>
+
+        <!-- MORE SHOWS -->
+
+        <section class="podcast-card">
+
+          <h2>MORE SHOWS COMING</h2>
+
+          <p>
+            The Retro Entertainment Network is growing!
+            From wrestling and alternative football
+            to retro gaming, movies, television, and
+            music, there's always something worth
+            revisiting.
+          </p>
+
+          <p>
+            Have a show that fits REN?
+            Reach out through Rick8bit's socials
+            to be considered for a future feature.
+          </p>
+
+          <div class="podcast-tags">
+            <span>Alt Football</span>
+            <span>Retro Gaming</span>
+            <span>Creator Spotlight</span>
+          </div>
+
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- REN TIME CIRCUITS FOOTER -->
+
+  <footer>
+    <section class="ren-time-circuits">
+
+      <h2>MOVING FORWARD WHILE LOOKING BACK</h2>
+
+      <div class="time-machine">
+
+        <!-- DESTINATION TIME -->
+
+        <div class="time-row destination">
+          <div class="time-heading">DESTINATION TIME</div>
+
+          <div class="time-display">
+
+            <div class="time-unit">
+              <span class="time-label">MONTH</span>
+              <span class="led-number">01</span>
+            </div>
+
+            <div class="time-unit">
+              <span class="time-label">DAY</span>
+              <span class="led-number">01</span>
+            </div>
+
+            <div class="time-unit">
+              <span class="time-label">YEAR</span>
+              <span class="led-number">1985</span>
+            </div>
+
+            <div class="time-unit">
+              <span class="time-label">24 HR</span>
+              <span class="led-number">00:00</span>
+            </div>
+
           </div>
         </div>
+
+        <!-- PRESENT TIME -->
+
+        <div class="time-row present">
+          <div class="time-heading">PRESENT TIME</div>
+
+          <div class="time-display">
+
+            <div class="time-unit">
+              <span class="time-label">MONTH</span>
+              <span class="led-number" id="ren-month">--</span>
+            </div>
+
+            <div class="time-unit">
+              <span class="time-label">DAY</span>
+              <span class="led-number" id="ren-day">--</span>
+            </div>
+
+            <div class="time-unit">
+              <span class="time-label">YEAR</span>
+              <span class="led-number" id="ren-year">----</span>
+            </div>
+
+            <div class="time-unit">
+              <span class="time-label">24 HR</span>
+              <span class="led-number" id="ren-clock">--:--</span>
+            </div>
+
+          </div>
+        </div>
+
       </div>
+    </section>
+  </footer>
 
-    </div>
-  </section>
-</footer>
+  <!-- LIVE CLOCK -->
 
-<script>
-function updateRENClock() {
-  const now = new Date();
-  const pad = number => String(number).padStart(2, '0');
+  <script>
+    function updateRENClock() {
+      const now = new Date();
+      const pad = number => String(number).padStart(2, '0');
 
-  document.getElementById('ren-month').textContent =
-    pad(now.getMonth() + 1);
+      document.getElementById('ren-month').textContent =
+        pad(now.getMonth() + 1);
 
-  document.getElementById('ren-day').textContent =
-    pad(now.getDate());
+      document.getElementById('ren-day').textContent =
+        pad(now.getDate());
 
-  document.getElementById('ren-year').textContent =
-    now.getFullYear();
+      document.getElementById('ren-year').textContent =
+        now.getFullYear();
 
-  document.getElementById('ren-clock').textContent =
-    pad(now.getHours()) + ':' + pad(now.getMinutes());
-}
+      document.getElementById('ren-clock').textContent =
+        pad(now.getHours()) + ':' + pad(now.getMinutes());
+    }
 
-updateRENClock();
-setInterval(updateRENClock, 1000);
-</script>
+    updateRENClock();
+    setInterval(updateRENClock, 1000);
+  </script>
 
 </body>
 </html>
