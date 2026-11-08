@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
+    /* RICK8BIT NEON RED THEME */
+
     :root {
       --rick-red: #ff3030;
       --rick-cyan: #00eaff;
@@ -29,8 +31,9 @@
 
     .rick-heading h1 {
       color: var(--rick-red);
-      text-shadow: 0 0 8px rgba(255,48,48,.8),
-                   0 0 22px rgba(255,48,48,.45);
+      text-shadow:
+        0 0 8px rgba(255,48,48,.8),
+        0 0 22px rgba(255,48,48,.45);
     }
 
     .rick-subtitle {
@@ -94,6 +97,8 @@
       box-shadow: 0 0 25px var(--rick-red);
     }
 
+    /* CYAN VISIT CHANNEL BUTTON */
+
     .rick-button.secondary {
       background: transparent;
       color: var(--rick-cyan);
@@ -101,18 +106,19 @@
       box-shadow: 0 0 12px rgba(0,234,255,.2);
     }
 
-    /* SHORTS BUTTON - RED OUTLINE */
+    /* WHITE SHORTS BUTTON WITH RED LETTERING */
 
     .rick-latest-links .rick-button.secondary {
-      background: transparent;
-      color: var(--rick-red);
-      border: 2px solid var(--rick-red);
-      box-shadow: 0 0 12px rgba(255,48,48,.35);
+      background: #ffffff;
+      color: #ff3030;
+      border: 2px solid #ff3030;
+      box-shadow: 0 0 15px rgba(255,48,48,.45);
     }
 
     .rick-latest-links .rick-button.secondary:hover {
-      background: rgba(255,48,48,.12);
-      box-shadow: 0 0 22px rgba(255,48,48,.7);
+      background: #f2f2f2;
+      color: #cc0000;
+      box-shadow: 0 0 25px rgba(255,48,48,.8);
     }
 
     /* SECTION HEADINGS */
@@ -135,7 +141,7 @@
       margin-bottom: 25px;
     }
 
-    /* FEATURED SHORT */
+    /* FEATURED VIDEO */
 
     .rick-video-grid {
       display: grid;
@@ -166,6 +172,8 @@
       font-size: 14px;
       text-align: center;
     }
+
+    /* VERTICAL YOUTUBE SHORT */
 
     .rick-video-frame {
       width: 100%;
@@ -250,19 +258,21 @@
 
 <body>
 
-  <!-- UNIVERSAL REN NAVIGATION -->
+  <!-- REN NAVIGATION -->
 
   <header>
     <nav class="navbar" aria-label="Main navigation">
       <a href="index.html">HOME</a>
+
       <a href="rick8bit.html"
          class="active"
          aria-current="page">RICK8BIT</a>
+
       <a href="podcasts.html">PODCASTS</a>
       <a href="watch.html">WATCH</a>
-      <a href="news.html">NEWS</a>
-      <a href="games.html">GAMES</a>
-      <a href="links.html">LINKS</a>
+      <a href="construction.html">NEWS</a>
+      <a href="construction.html">GAMES</a>
+      <a href="construction.html">LINKS</a>
     </nav>
   </header>
 
@@ -273,6 +283,7 @@
 
       <div class="rick-heading">
         <h1>RICK8BIT</h1>
+
         <p class="rick-subtitle">
           Retro Gaming • Entertainment • Nostalgia
         </p>
@@ -319,7 +330,7 @@
 
       </section>
 
-      <!-- FEATURED SHORT -->
+      <!-- FEATURED VIDEO -->
 
       <section class="rick-section">
 
@@ -492,7 +503,7 @@
     </section>
   </footer>
 
-  <!-- LIVE PRESENT TIME CLOCK -->
+  <!-- LIVE CLOCK -->
 
   <script>
     function updateRENClock() {
