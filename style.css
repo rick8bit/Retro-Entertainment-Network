@@ -1,12 +1,14 @@
 
 /* ========================================
    REN - RETRO ENTERTAINMENT NETWORK
-   UNIVERSAL STYLESHEET
+   COMPLETE UNIVERSAL STYLESHEET
 ======================================== */
 
 /* FONTS */
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@700&display=swap');
+
+/* GENERAL RESET */
 
 * {
   box-sizing: border-box;
@@ -32,7 +34,7 @@ a {
 }
 
 /* ========================================
-   UNIVERSAL NAVIGATION
+   UNIVERSAL REN NAVIGATION
 ======================================== */
 
 .navbar {
@@ -91,7 +93,7 @@ main {
 }
 
 /* ========================================
-   PIXEL HEADINGS
+   REN PIXEL HEADINGS
 ======================================== */
 
 h1,
@@ -116,7 +118,9 @@ h2 {
 }
 
 /* ========================================
-   ANIMATED REN TAGLINE
+   REN ANIMATED TAGLINE
+   ITALIC WHILE MOVING
+   BOLD & UPRIGHT WHEN STOPPED
 ======================================== */
 
 .tagline {
@@ -139,55 +143,67 @@ h2 {
 .tagline-back {
   display: block;
   opacity: 0;
+  font-style: italic;
+
   animation-duration: 1.5s;
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
 }
 
-/* MOVING FORWARD - LEFT TO RIGHT */
+/* MOVING FORWARD - SLIDES FROM LEFT */
 
 .tagline-forward {
   animation-name: renForward;
 }
 
-/* WHILE LOOKING BACK - RIGHT TO LEFT */
+/* WHILE LOOKING BACK - SLIDES FROM RIGHT */
 
 .tagline-back {
   animation-name: renBack;
   animation-delay: 0.3s;
 }
 
+/* LEFT TO RIGHT ANIMATION */
+
 @keyframes renForward {
   0% {
-    transform: translateX(-100vw) skewX(-12deg);
+    transform: translateX(-100vw);
     opacity: 0;
+    font-style: italic;
   }
 
-  80% {
-    transform: translateX(0) skewX(-12deg);
+  95% {
+    transform: translateX(0);
     opacity: 1;
+    font-style: italic;
   }
 
   100% {
-    transform: translateX(0) skewX(0deg);
+    transform: translateX(0);
     opacity: 1;
+    font-style: normal;
   }
 }
 
+/* RIGHT TO LEFT ANIMATION */
+
 @keyframes renBack {
   0% {
-    transform: translateX(100vw) skewX(12deg);
+    transform: translateX(100vw);
     opacity: 0;
+    font-style: italic;
   }
 
-  80% {
-    transform: translateX(0) skewX(12deg);
+  95% {
+    transform: translateX(0);
     opacity: 1;
+    font-style: italic;
   }
 
   100% {
-    transform: translateX(0) skewX(0deg);
+    transform: translateX(0);
     opacity: 1;
+    font-style: normal;
   }
 }
 
@@ -414,6 +430,7 @@ footer {
     animation: none;
     transform: none;
     opacity: 1;
+    font-style: normal;
   }
 
   .tv-card {
