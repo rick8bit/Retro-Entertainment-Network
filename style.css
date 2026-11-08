@@ -1,21 +1,39 @@
-/* --------------------
-   FONTS
---------------------- */
 
+/* ========================================
+   REN - RETRO ENTERTAINMENT NETWORK
+   UNIVERSAL STYLESHEET
+======================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+/* FONTS */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@700&display=swap');
 
 * {
   box-sizing: border-box;
 }
 
+html,
 body {
+  width: 100%;
+  max-width: 100%;
   margin: 0;
+  overflow-x: hidden;
+}
+
+body {
   background: #050509;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
 }
+
+a {
+  color: inherit;
+}
+
+/* ========================================
+   UNIVERSAL NAVIGATION
+======================================== */
 
 .navbar {
   display: flex;
@@ -23,6 +41,7 @@ body {
   justify-content: center;
   gap: 8px;
   padding: 18px 10px;
+  width: 100%;
   background: #090914;
   border-bottom: 2px solid #ff22ce;
 }
@@ -41,14 +60,19 @@ body {
   text-shadow: 0 0 10px #ff39db;
 }
 
-.navbar a.active {
+.navbar a.active,
+.navbar a[aria-current="page"] {
   color: #39ff14;
   box-shadow: 0 0 10px #39ff14;
 }
 
+/* ========================================
+   MAIN PAGE LAYOUT
+======================================== */
+
 main {
-  width: min(100% - 28px, 1100px);
-  margin: auto;
+  width: min(calc(100% - 28px), 1100px);
+  margin: 0 auto;
 }
 
 .hero {
@@ -56,17 +80,24 @@ main {
   padding: 28px 0 12px;
 }
 
-.ren-logo {
+.hero img.ren-logo {
   display: block;
-  width: 220px;
-  max-width: 80%;
+  width: 250px;
+  max-width: 80vw;
   height: auto;
-  margin: 0 auto 20px;
+  object-fit: contain;
+  margin: 20px auto;
   border-radius: 10px;
 }
 
-h1, h2 {
+/* ========================================
+   PIXEL HEADINGS
+======================================== */
+
+h1,
+h2 {
   font-family: 'Press Start 2P', monospace;
+  font-weight: normal;
   text-align: center;
   line-height: 1.7;
   overflow-wrap: anywhere;
@@ -84,13 +115,85 @@ h2 {
   text-shadow: 0 0 10px #ff29d8;
 }
 
+/* ========================================
+   ANIMATED REN TAGLINE
+======================================== */
+
 .tagline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  overflow: hidden;
+  padding: 8px 12px;
+
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(16px, 3vw, 23px);
   font-weight: bold;
   color: #00eaff;
-  text-shadow: 0 0 8px #009dff;
   text-align: center;
+  text-shadow: 0 0 8px #009dff;
 }
+
+.tagline-forward,
+.tagline-back {
+  display: block;
+  opacity: 0;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+/* MOVING FORWARD - LEFT TO RIGHT */
+
+.tagline-forward {
+  animation-name: renForward;
+}
+
+/* WHILE LOOKING BACK - RIGHT TO LEFT */
+
+.tagline-back {
+  animation-name: renBack;
+  animation-delay: 0.3s;
+}
+
+@keyframes renForward {
+  0% {
+    transform: translateX(-100vw) skewX(-12deg);
+    opacity: 0;
+  }
+
+  80% {
+    transform: translateX(0) skewX(-12deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0) skewX(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes renBack {
+  0% {
+    transform: translateX(100vw) skewX(12deg);
+    opacity: 0;
+  }
+
+  80% {
+    transform: translateX(0) skewX(12deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(0) skewX(0deg);
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   WELCOME SECTION
+======================================== */
 
 .intro {
   max-width: 800px;
@@ -98,9 +201,15 @@ h2 {
 }
 
 .intro p {
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 17px;
+  line-height: 1.7;
   text-align: left;
 }
+
+/* ========================================
+   EXPLORE THE NETWORK - SIX TV TILES
+======================================== */
 
 .channels {
   margin: 25px auto 65px;
@@ -108,28 +217,36 @@ h2 {
 
 .tv-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
-  margin-top: 25px;
+  max-width: 750px;
+  margin: 25px auto;
 }
 
 .tv-card {
   display: block;
+  min-width: 0;
   border-radius: 12px;
   overflow: hidden;
-  transition: transform .2s, box-shadow .2s;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .tv-card img {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
 }
 
-.tv-card:hover {
+.tv-card:hover,
+.tv-card:focus-visible {
   transform: translateY(-5px);
   box-shadow: 0 0 22px #ff20d6;
 }
+
+/* ========================================
+   REN FOOTER
+======================================== */
 
 footer {
   padding: 30px 15px;
@@ -137,112 +254,21 @@ footer {
   border-top: 1px solid #ff29d8;
 }
 
-footer p:first-child {
-  font-family: 'Press Start 2P', monospace;
-  font-size: 11px;
-  line-height: 2;
-  color: #00eaff;
-}
-
-footer p:last-child {
-  font-size: 15px;
-  color: #ff42d7;
-}
-
-@media (max-width: 650px) {
-  .tv-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-  }
-
-  .ren-logo {
-    max-width: 340px;
-  }
-
-  .intro p {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 350px) {
-  .tv-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-
-/* REN MOBILE AND DESKTOP LAYOUT REPAIR */
-
-html, body {
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  overflow-x: hidden;
-}
-
-main, .hero, .channels, .intro {
-  width: 100%;
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero img.ren-logo {
-  display: block !important;
-  width: 250px !important;
-  max-width: 80vw !important;
-  height: auto !important;
-  object-fit: contain !important;
-  margin: 20px auto !important;
-}
-
-.navbar {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  justify-content: center !important;
-  gap: 8px !important;
-  width: 100%;
-}
-
-.tv-grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-  max-width: 750px !important;
-  margin: 25px auto !important;
-}
-
-.tv-card img {
-  display: block !important;
-  width: 100% !important;
-  max-width: 100% !important;
-  height: auto !important;
-}
-
-@media (max-width: 650px) {
-  .hero img.ren-logo {
-    width: 200px !important;
-  }
-
-  .tv-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    max-width: 360px !important;
-    gap: 10px !important;
-  }
-}
-
-
-
-/* REN TIME CIRCUITS */
+/* ========================================
+   BACK TO THE FUTURE TIME CIRCUITS
+======================================== */
 
 .ren-time-circuits {
-  width: min(100% - 24px, 850px);
+  width: min(100%, 850px);
   margin: 45px auto;
   text-align: center;
 }
 
 .ren-time-circuits h2 {
-  font-size: 14px;
+  font-family: 'Press Start 2P', monospace;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 1.8;
   margin-bottom: 20px;
 }
 
@@ -331,6 +357,26 @@ main, .hero, .channels, .intro {
     0 0 12px #3cba12;
 }
 
+/* ========================================
+   MOBILE ADJUSTMENTS
+======================================== */
+
+@media (max-width: 650px) {
+  .hero img.ren-logo {
+    width: 200px;
+  }
+
+  .intro p {
+    font-size: 16px;
+  }
+
+  .tv-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 360px;
+    gap: 10px;
+  }
+}
+
 @media (max-width: 420px) {
   .time-machine {
     padding: 7px;
@@ -358,82 +404,9 @@ main, .hero, .channels, .intro {
   }
 }
 
-
-/* RESTORE REN PIXEL HEADINGS */
-
-h1,
-h2,
-.ren-time-circuits h2,
-footer p:first-child {
-  font-family: 'Press Start 2P', monospace !important;
-  font-weight: normal;
-}
-
-h1 {
-  font-size: clamp(13px, 3vw, 25px);
-}
-
-h2 {
-  font-size: clamp(12px, 2.4vw, 18px);
-}
-
-.ren-time-circuits h2 {
-  font-size: 12px;
-  line-height: 1.8;
-}
-
-/* KEEP REGULAR TEXT IN ARIAL */
-
-body,
-.intro p,
-.tagline {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* REN ANIMATED TAGLINE */
-
-.tagline {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  overflow: hidden;
-  padding: 8px 0;
-}
-
-.tagline-forward,
-.tagline-back {
-  display: block;
-  opacity: 0;
-  animation-duration: 1.2s;
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-}
-
-.tagline-forward {
-  transform: translateX(-100vw);
-  animation-name: moveForward;
-}
-
-.tagline-back {
-  transform: translateX(100vw);
-  animation-name: lookBack;
-  animation-delay: 0.3s;
-}
-
-@keyframes moveForward {
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes lookBack {
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
+/* ========================================
+   ACCESSIBILITY
+======================================== */
 
 @media (prefers-reduced-motion: reduce) {
   .tagline-forward,
@@ -441,5 +414,9 @@ body,
     animation: none;
     transform: none;
     opacity: 1;
+  }
+
+  .tv-card {
+    transition: none;
   }
 }
