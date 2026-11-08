@@ -1,0 +1,680 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>REN TV | Retro Entertainment Network</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+.watch-heading {
+  text-align: center;
+  margin: 35px auto 10px;
+  color: #00eaff;
+  text-shadow: 0 0 15px #00eaff;
+}
+.watch-subtitle {
+  text-align: center;
+  color: #ff39db;
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+.ren-tv-area {
+  width: min(100%, 850px);
+  margin: 20px auto 45px;
+}
+.tv-cabinet {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 90px;
+  gap: 13px;
+  background: linear-gradient(135deg, #57505d, #29232e 65%, #15141b);
+  border: 7px solid #77717c;
+  border-radius: 30px;
+  padding: 18px;
+  box-shadow:
+    inset 0 0 25px #000,
+    0 0 24px rgba(0,234,255,.25);
+}
+.tv-screen-shell {
+  min-width: 0;
+  background: #0b0b0d;
+  border: 8px solid #1b1b22;
+  border-radius: 27px;
+  overflow: hidden;
+  box-shadow: inset 0 0 22px #000;
+}
+.tv-screen {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: #020306;
+  overflow: hidden;
+  border-radius: 17px;
+}
+.tv-screen iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.channel-label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 8;
+  background: rgba(0,0,0,.78);
+  color: #39ff14;
+  font: 12px 'Press Start 2P', monospace;
+  padding: 9px;
+  border-radius: 5px;
+  text-shadow: 0 0 8px #39ff14;
+  pointer-events: none;
+}
+.tv-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 28px 15px;
+  background: radial-gradient(circle, #183342, #04070b 75%);
+}
+.tv-content h3 {
+  color: #00eaff;
+  text-shadow: 0 0 12px #00eaff;
+  font: clamp(12px, 2.5vw, 21px) 'Press Start 2P', monospace;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+  margin: 12px 0;
+}
+.tv-content p {
+  font-size: clamp(11px, 2vw, 15px);
+  color: #eee;
+  margin: 8px 0 15px;
+}
+.tv-content a {
+  display: inline-block;
+  padding: 10px 14px;
+  background: #ff29d8;
+  color: #080808;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+}
+.tv-content a:hover {
+  background: #fff;
+}
+.tv-static {
+  position: absolute;
+  inset: 0;
+  display: none;
+  background: #111;
+}
+.tv-static canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  image-rendering: pixelated;
+}
+.tv-off {
+  position: absolute;
+  inset: 0;
+  display: none;
+  background: #010101;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  font: 13px 'Press Start 2P', monospace;
+}
+.tv-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+  gap: 10px;
+  padding: 10px 0;
+}
+.tv-brand {
+  color: #fff;
+  font: 11px 'Press Start 2P', monospace;
+  text-shadow: 0 0 8px #00eaff;
+}
+.tv-controls button {
+  cursor: pointer;
+  touch-action: manipulation;
+  color: white;
+  background: linear-gradient(#5c5c68, #262631);
+  border: 2px solid #a1a1ac;
+  border-radius: 9px;
+  width: 60px;
+  min-height: 48px;
+  font-size: 18px;
+  box-shadow: 0 4px 0 #111;
+}
+.tv-controls button:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #111;
+}
+.tv-controls button:focus-visible {
+  outline: 3px solid #00eaff;
+}
+.tv-controls .power-button {
+  background: #8c1e27;
+  border-color: #ff6262;
+  font-size: 19px;
+}
+.control-caption {
+  color: #d4d4d4;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-align: center;
+}
+.power-light {
+  width: 11px;
+  height: 11px;
+  background: #39ff14;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #39ff14;
+}
+.tv-base {
+  width: 48%;
+  height: 17px;
+  margin: auto;
+  background: linear-gradient(#555, #222);
+  border-radius: 0 0 12px 12px;
+}
+.tv-stand {
+  width: 65%;
+  height: 12px;
+  margin: auto;
+  background: #343039;
+  border-radius: 10px;
+}
+.channel-info {
+  text-align: center;
+  margin: 25px auto;
+  padding: 18px;
+  max-width: 700px;
+  border: 2px solid #00eaff;
+  border-radius: 12px;
+  background: #0d101b;
+  box-shadow: 0 0 14px rgba(0,234,255,.18);
+}
+.channel-info h2 {
+  color: #00eaff;
+  margin: 5px 0;
+}
+.channel-info p {
+  margin: 8px 0;
+}
+.channel-guide {
+  width: min(100%, 750px);
+  margin: 40px auto 60px;
+}
+.channel-guide h2 {
+  color: #ff39db;
+}
+.guide-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.guide-item {
+  padding: 13px;
+  border: 1px solid #555;
+  border-radius: 8px;
+  background: #101019;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+.guide-item strong {
+  color: #39ff14;
+}
+.guide-item.static-item strong {
+  color: #aaa;
+}
+.watch-note {
+  color: #bbb;
+  font-size: 13px;
+  text-align: center;
+  margin: 15px auto 30px;
+  max-width: 650px;
+}
+@media(max-width:600px) {
+  .tv-cabinet {
+    grid-template-columns: minmax(0, 1fr) 53px;
+    gap: 5px;
+    border-width: 4px;
+    border-radius: 19px;
+    padding: 8px;
+  }
+  .tv-screen-shell {
+    border-width: 4px;
+    border-radius: 15px;
+  }
+  .tv-screen {
+    border-radius: 10px;
+    aspect-ratio: 4 / 3;
+  }
+  .tv-controls {
+    gap: 5px;
+    padding: 4px 0;
+  }
+  .tv-controls button {
+    width: 38px;
+    min-height: 34px;
+    font-size: 15px;
+    border-radius: 6px;
+  }
+  .tv-brand {
+    font-size: 8px;
+  }
+  .control-caption {
+    font-size: 8px;
+  }
+  .channel-label {
+    font-size: 8px;
+    top: 7px;
+    left: 7px;
+    padding: 5px;
+  }
+  .tv-content {
+    padding: 20px 8px 8px;
+  }
+  .tv-content h3 {
+    font-size: clamp(9px, 2.5vw, 13px);
+  }
+  .tv-content p {
+    font-size: 11px;
+    margin: 3px 0 7px;
+  }
+  .tv-content a {
+    font-size: 10px;
+    padding: 7px;
+  }
+  .guide-list {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+  <a href="index.html">HOME</a>
+  <a href="rick8bit.html">RICK8BIT</a>
+  <a href="podcasts.html">PODCASTS</a>
+  <a href="watch.html" class="active" aria-current="page">WATCH</a>
+  <a href="construction.html">NEWS</a>
+  <a href="construction.html">GAMES</a>
+  <a href="construction.html">LINKS</a>
+</nav>
+
+<main>
+  <h1 class="watch-heading">REN TV</h1>
+  <p class="watch-subtitle">
+    Your Retro Channel Surfing Experience
+  </p>
+
+  <section class="ren-tv-area" aria-label="REN TV player">
+    <div class="tv-cabinet">
+      <div class="tv-screen-shell">
+        <div class="tv-screen">
+          <div class="channel-label" id="channelLabel">
+            CH 01
+          </div>
+
+          <div class="tv-content" id="tvContent">
+          </div>
+
+          <div class="tv-static" id="tvStatic">
+            <canvas id="staticCanvas"
+              width="160" height="100"></canvas>
+          </div>
+
+          <div class="tv-off" id="tvOff">
+            POWER OFF
+          </div>
+        </div>
+      </div>
+
+      <div class="tv-controls">
+        <div class="tv-brand">REN</div>
+
+        <div class="control-caption">POWER</div>
+        <button class="power-button"
+          id="powerButton"
+          aria-label="Turn television on or off">
+          ⏻
+        </button>
+
+        <div class="control-caption">CH ▲</div>
+        <button id="channelUp"
+          aria-label="Next channel">
+          ▲
+        </button>
+
+        <div class="control-caption">CH ▼</div>
+        <button id="channelDown"
+          aria-label="Previous channel">
+          ▼
+        </button>
+
+        <div class="power-light" id="powerLight"></div>
+      </div>
+    </div>
+
+    <div class="tv-base"></div>
+    <div class="tv-stand"></div>
+  </section>
+
+  <section class="channel-info" aria-live="polite">
+    <h2 id="channelName">CH 01 — RICK8BIT</h2>
+    <p id="channelDescription">
+      Retro gaming and entertainment!
+    </p>
+  </section>
+
+  <p class="watch-note">
+    Use the buttons on the television to change channels.
+    Channels 5 and 6 have no reception!
+  </p>
+
+  <section class="channel-guide">
+    <h2>CHANNEL GUIDE</h2>
+    <div class="guide-list">
+      <div class="guide-item">
+        <strong>CH 01</strong> — Rick8bit
+      </div>
+      <div class="guide-item">
+        <strong>CH 02</strong> — 4 Sides of the Ring
+      </div>
+      <div class="guide-item">
+        <strong>CH 03</strong> — Alternative Football Panel
+      </div>
+      <div class="guide-item">
+        <strong>CH 04</strong> — Viking Wax Press
+      </div>
+      <div class="guide-item static-item">
+        <strong>CH 05</strong> — No Signal
+      </div>
+      <div class="guide-item static-item">
+        <strong>CH 06</strong> — No Signal
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <section class="ren-time-circuits">
+    <h2>MOVING FORWARD WHILE LOOKING BACK</h2>
+    <div class="time-machine">
+
+      <div class="time-row destination">
+        <div class="time-heading">DESTINATION TIME</div>
+        <div class="time-display">
+          <div class="time-unit">
+            <span class="time-label">MONTH</span>
+            <span class="led-number">01</span>
+          </div>
+          <div class="time-unit">
+            <span class="time-label">DAY</span>
+            <span class="led-number">01</span>
+          </div>
+          <div class="time-unit">
+            <span class="time-label">YEAR</span>
+            <span class="led-number">1985</span>
+          </div>
+          <div class="time-unit">
+            <span class="time-label">24 HR</span>
+            <span class="led-number">00:00</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="time-row present">
+        <div class="time-heading">PRESENT TIME</div>
+        <div class="time-display">
+          <div class="time-unit">
+            <span class="time-label">MONTH</span>
+            <span class="led-number" id="ren-month">--</span>
+          </div>
+          <div class="time-unit">
+            <span class="time-label">DAY</span>
+            <span class="led-number" id="ren-day">--</span>
+          </div>
+          <div class="time-unit">
+            <span class="time-label">YEAR</span>
+            <span class="led-number" id="ren-year">----</span>
+          </div>
+          <div class="time-unit">
+            <span class="time-label">24 HR</span>
+            <span class="led-number" id="ren-clock">--:--</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</footer>
+
+<script>
+const channels = [
+  {
+    name: "RICK8BIT",
+    description: "Retro gaming and entertainment!",
+    url: "https://www.youtube.com/@rick8bit",
+    video: "Z_bmWq2KZ2k"
+  },
+  {
+    name: "4 SIDES OF THE RING",
+    description: "Featured REN wrestling creator.",
+    url: "https://www.youtube.com/@4sidesofthering",
+    video: ""
+  },
+  {
+    name: "ALTERNATIVE FOOTBALL PANEL",
+    description: "Alternative football coverage.",
+    url: "https://www.youtube.com/@altfbpanel",
+    video: ""
+  },
+  {
+    name: "VIKING WAX PRESS",
+    description: "Featured REN creator.",
+    url: "https://www.youtube.com/@vikingwaxpress",
+    video: ""
+  },
+  {
+    name: "NO SIGNAL",
+    description: "Nothing but snow on this channel!",
+    static: true
+  },
+  {
+    name: "NO SIGNAL",
+    description: "Try another channel!",
+    static: true
+  }
+];
+
+let currentChannel = 0;
+let powerOn = true;
+let switching = false;
+let switchTimer = null;
+
+const content = document.getElementById("tvContent");
+const staticScreen = document.getElementById("tvStatic");
+const offScreen = document.getElementById("tvOff");
+const channelLabel = document.getElementById("channelLabel");
+const powerLight = document.getElementById("powerLight");
+const channelName = document.getElementById("channelName");
+const channelDescription =
+  document.getElementById("channelDescription");
+
+const canvas = document.getElementById("staticCanvas");
+const ctx = canvas.getContext("2d");
+let staticFrame = 0;
+
+function drawStatic() {
+  if (!ctx) return;
+  const width = canvas.width;
+  const height = canvas.height;
+  const frame = ctx.createImageData(width, height);
+
+  for (let i = 0; i < frame.data.length; i += 4) {
+    const shade = Math.floor(Math.random() * 256);
+    frame.data[i] = shade;
+    frame.data[i + 1] = shade;
+    frame.data[i + 2] = shade;
+    frame.data[i + 3] = 255;
+  }
+
+  ctx.putImageData(frame, 0, 0);
+}
+
+function animateStatic() {
+  if (powerOn &&
+      (switching || channels[currentChannel].static)) {
+    staticFrame++;
+    if (staticFrame % 3 === 0) drawStatic();
+  }
+  requestAnimationFrame(animateStatic);
+}
+requestAnimationFrame(animateStatic);
+
+function removePlayer() {
+  content.replaceChildren();
+}
+
+function showChannel() {
+  const channel = channels[currentChannel];
+  const number = String(currentChannel + 1).padStart(2, "0");
+
+  channelLabel.textContent = "CH " + number;
+  channelName.textContent =
+    "CH " + number + " — " + channel.name;
+  channelDescription.textContent = channel.description;
+
+  removePlayer();
+  offScreen.style.display = "none";
+  staticScreen.style.display = "none";
+
+  if (!powerOn) {
+    channelLabel.style.display = "none";
+    offScreen.style.display = "flex";
+    return;
+  }
+
+  channelLabel.style.display = "block";
+
+  if (channel.static) {
+    staticScreen.style.display = "block";
+    drawStatic();
+    return;
+  }
+
+  content.style.display = "flex";
+
+  if (channel.video) {
+    const iframe = document.createElement("iframe");
+    iframe.src =
+      "https://www.youtube-nocookie.com/embed/" +
+      encodeURIComponent(channel.video) +
+      "?rel=0";
+    iframe.title = channel.name + " YouTube video";
+    iframe.allow =
+      "accelerometer; autoplay; clipboard-write; " +
+      "encrypted-media; gyroscope; picture-in-picture; " +
+      "web-share";
+    iframe.allowFullscreen = true;
+    iframe.referrerPolicy = "strict-origin-when-cross-origin";
+    content.appendChild(iframe);
+  } else {
+    const heading = document.createElement("h3");
+    heading.textContent = channel.name;
+
+    const description = document.createElement("p");
+    description.textContent = "Featured REN TV Creator";
+
+    const link = document.createElement("a");
+    link.href = channel.url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
+    link.textContent = "WATCH ON YOUTUBE";
+
+    content.append(heading, description, link);
+  }
+}
+
+function changeChannel(direction) {
+  if (!powerOn || switching) return;
+
+  switching = true;
+  removePlayer();
+  content.style.display = "none";
+  staticScreen.style.display = "block";
+  channelLabel.style.display = "none";
+  drawStatic();
+
+  clearTimeout(switchTimer);
+
+  switchTimer = setTimeout(() => {
+    currentChannel =
+      (currentChannel + direction + channels.length) %
+      channels.length;
+
+    switching = false;
+    content.style.display = "flex";
+    showChannel();
+  }, 420);
+}
+
+document.getElementById("channelUp")
+  .addEventListener("click", () => changeChannel(1));
+
+document.getElementById("channelDown")
+  .addEventListener("click", () => changeChannel(-1));
+
+document.getElementById("powerButton")
+  .addEventListener("click", () => {
+    clearTimeout(switchTimer);
+    switching = false;
+    powerOn = !powerOn;
+
+    powerLight.style.background =
+      powerOn ? "#39ff14" : "#555";
+    powerLight.style.boxShadow =
+      powerOn ? "0 0 10px #39ff14" : "none";
+
+    content.style.display = powerOn ? "flex" : "none";
+    showChannel();
+  });
+
+function updateRENClock() {
+  const now = new Date();
+  const pad = n => String(n).padStart(2, "0");
+
+  document.getElementById("ren-month").textContent =
+    pad(now.getMonth() + 1);
+  document.getElementById("ren-day").textContent =
+    pad(now.getDate());
+  document.getElementById("ren-year").textContent =
+    now.getFullYear();
+  document.getElementById("ren-clock").textContent =
+    pad(now.getHours()) + ":" + pad(now.getMinutes());
+}
+
+showChannel();
+updateRENClock();
+setInterval(updateRENClock, 1000);
+</script>
+
+</body>
+</html>
