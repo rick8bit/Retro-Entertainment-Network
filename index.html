@@ -7,168 +7,196 @@
   <title>REN | Retro Entertainment Network</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<header>
-  <nav class="navbar">
-    <a href="index.html" class="active">HOME</a>
-    <a href="rick8bit.html">RICK 8BIT</a>
-    <a href="podcasts.html">PODCASTS</a>
-    <a href="watch.html">WATCH</a>
-    <a href="news.html">NEWS</a>
-    <a href="games.html">GAMES</a>
-    <a href="links.html">LINKS</a>
-  </nav>
-</header>
+  <!-- UNIVERSAL REN HEADER -->
+  <header>
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="index.html" class="active" aria-current="page">HOME</a>
+      <a href="rick8bit.html">RICK8BIT</a>
+      <a href="podcasts.html">PODCASTS</a>
+      <a href="watch.html">WATCH</a>
+      <a href="news.html">NEWS</a>
+      <a href="games.html">GAMES</a>
+      <a href="links.html">LINKS</a>
+    </nav>
+  </header>
 
-<main>
-  <section class="hero">
-    <img src="REN-Main.jpg"
-         alt="Retro Entertainment Network"
-         class="ren-logo">
+  <main>
 
-    <h1>RETRO ENTERTAINMENT NETWORK</h1>
-    <div class="tagline">
-  <span class="tagline-forward">Moving Forward</span>
-  <span class="tagline-back">While Looking Back</span>
-    </div>
-  </section>
+    <!-- REN HERO -->
+    <section class="hero">
+      <img
+        src="REN-Main.jpg"
+        alt="Retro Entertainment Network logo"
+        class="ren-logo"
+      >
 
-  <section class="intro">
-    <h2>WELCOME TO REN</h2>
-    <p>
-      Welcome to the Retro Entertainment Network (REN) — where yesterday's favorites meet today's entertainment!
+      <h1>RETRO ENTERTAINMENT NETWORK</h1>
 
-From the squared circle to the gridiron, from classic gaming consoles to the big and small screens, REN brings together wrestling, sports, video games, movies, television, music, and more.
-
-Through podcasts, videos, news, and original content, we celebrate the moments that shaped entertainment, explore what's happening today, and create new memories along the way.
-
-Retro Entertainment Network — Moving Forward While Looking Back.
-    </p>
-  </section>
-
-  <section class="channels">
-    <h2>EXPLORE THE NETWORK</h2>
-
-    <div class="tv-grid">
-      <a href="rick8bit.html" class="tv-card">
-  <img src="REN-Rick8bit.png" alt="Rick8bit">
-      </a>
-      
-      <a href="podcasts.html" class="tv-card">
-        <img src="REN-Podcasts.jpg" alt="Podcasts">
-      </a>
-
-      <a href="watch.html" class="tv-card">
-        <img src="REN-Watch.jpg" alt="Watch">
-      </a>
-
-<a href="news.html" class="tv-card">
-        <img src="REN-News.jpg" alt="News">
-</a>
-      
-      <a href="games.html" class="tv-card">
-        <img src="REN-Games.jpg" alt="Games">
-      </a>
-
-      <a href="links.html" class="tv-card">
-        <img src="REN-Links.jpg" alt="Links">
-      </a>
-    </div>
-  </section>
-</main>
-
-<footer>
-<!-- REN TIME CIRCUITS -->
-<section class="ren-time-circuits">
-
-  <h2>MOVING FORWARD WHILE LOOKING BACK</h2>
-
-  <div class="time-machine">
-
-    <!-- DESTINATION -->
-    <div class="time-row destination">
-      <div class="time-heading">DESTINATION TIME</div>
-
-      <div class="time-display">
-        <div class="time-unit">
-          <span class="time-label">MONTH</span>
-          <span class="led-number">01</span>
-        </div>
-
-        <div class="time-unit">
-          <span class="time-label">DAY</span>
-          <span class="led-number">01</span>
-        </div>
-
-        <div class="time-unit">
-          <span class="time-label">YEAR</span>
-          <span class="led-number">1985</span>
-        </div>
-
-        <div class="time-unit">
-          <span class="time-label">24 HR</span>
-          <span class="led-number">00:00</span>
-        </div>
+      <div class="tagline">
+        <span class="tagline-forward">Moving Forward</span>
+        <span class="tagline-back">While Looking Back</span>
       </div>
-    </div>
+    </section>
 
-    <!-- PRESENT -->
-    <div class="time-row present">
-      <div class="time-heading">PRESENT TIME</div>
+    <!-- WELCOME -->
+    <section class="intro">
+      <h2>WELCOME TO REN</h2>
 
-      <div class="time-display">
-        <div class="time-unit">
-          <span class="time-label">MONTH</span>
-          <span class="led-number" id="ren-month">--</span>
-        </div>
+      <p>
+        Welcome to the Retro Entertainment Network (REN) —
+        where yesterday's favorites meet today's entertainment!
+      </p>
 
-        <div class="time-unit">
-          <span class="time-label">DAY</span>
-          <span class="led-number" id="ren-day">--</span>
-        </div>
+      <p>
+        From the squared circle to the gridiron, from classic
+        gaming consoles to the big and small screens, REN brings
+        together wrestling, sports, video games, movies,
+        television, music, and more.
+      </p>
 
-        <div class="time-unit">
-          <span class="time-label">YEAR</span>
-          <span class="led-number" id="ren-year">----</span>
-        </div>
+      <p>
+        Through podcasts, videos, news, and original content,
+        we celebrate the moments that shaped entertainment,
+        explore what's happening today, and create new
+        memories along the way.
+      </p>
 
-        <div class="time-unit">
-          <span class="time-label">24 HR</span>
-          <span class="led-number" id="ren-clock">--:--</span>
-        </div>
+      <p>
+        Retro Entertainment Network —
+        Moving Forward While Looking Back.
+      </p>
+    </section>
+
+    <!-- EXPLORE THE NETWORK -->
+    <section class="channels">
+      <h2>EXPLORE THE NETWORK</h2>
+
+      <div class="tv-grid">
+
+        <!-- ROW 1 -->
+        <a href="rick8bit.html" class="tv-card" aria-label="Rick8bit">
+          <img src="REN-RICK8BIT.PNG" alt="Rick8bit" loading="lazy">
+        </a>
+
+        <a href="podcasts.html" class="tv-card" aria-label="Podcasts">
+          <img src="REN-Podcasts.jpg" alt="Podcasts" loading="lazy">
+        </a>
+
+        <!-- ROW 2 -->
+        <a href="watch.html" class="tv-card" aria-label="Watch">
+          <img src="REN-Watch.jpg" alt="Watch" loading="lazy">
+        </a>
+
+        <a href="news.html" class="tv-card" aria-label="News">
+          <img src="REN-News.jpg" alt="News" loading="lazy">
+        </a>
+
+        <!-- ROW 3 -->
+        <a href="games.html" class="tv-card" aria-label="Games">
+          <img src="REN-Games.jpg" alt="Games" loading="lazy">
+        </a>
+
+        <a href="links.html" class="tv-card" aria-label="Links">
+          <img src="REN-Links.jpg" alt="Links" loading="lazy">
+        </a>
+
       </div>
-    </div>
+    </section>
 
-  </div>
-</section>
+  </main>
 
+  <!-- REN FOOTER / TIME CIRCUITS -->
+  <footer>
 
-<script>
-function updateRENClock() {
-  const now = new Date();
+    <section class="ren-time-circuits">
+      <h2>MOVING FORWARD WHILE LOOKING BACK</h2>
 
-  const pad = number =>
-    String(number).padStart(2, '0');
+      <div class="time-machine">
 
-  document.getElementById('ren-month').textContent =
-    pad(now.getMonth() + 1);
+        <!-- DESTINATION TIME -->
+        <div class="time-row destination">
+          <div class="time-heading">DESTINATION TIME</div>
 
-  document.getElementById('ren-day').textContent =
-    pad(now.getDate());
+          <div class="time-display">
+            <div class="time-unit">
+              <span class="time-label">MONTH</span>
+              <span class="led-number">01</span>
+            </div>
 
-  document.getElementById('ren-year').textContent =
-    now.getFullYear();
+            <div class="time-unit">
+              <span class="time-label">DAY</span>
+              <span class="led-number">01</span>
+            </div>
 
-  document.getElementById('ren-clock').textContent =
-    pad(now.getHours()) + ':' +
-    pad(now.getMinutes());
-}
+            <div class="time-unit">
+              <span class="time-label">YEAR</span>
+              <span class="led-number">1985</span>
+            </div>
 
-updateRENClock();
-setInterval(updateRENClock, 1000);
-</script>
+            <div class="time-unit">
+              <span class="time-label">24 HR</span>
+              <span class="led-number">00:00</span>
+            </div>
+          </div>
+        </div>
 
-</footer>
+        <!-- PRESENT TIME -->
+        <div class="time-row present">
+          <div class="time-heading">PRESENT TIME</div>
+
+          <div class="time-display">
+            <div class="time-unit">
+              <span class="time-label">MONTH</span>
+              <span class="led-number" id="ren-month">--</span>
+            </div>
+
+            <div class="time-unit">
+              <span class="time-label">DAY</span>
+              <span class="led-number" id="ren-day">--</span>
+            </div>
+
+            <div class="time-unit">
+              <span class="time-label">YEAR</span>
+              <span class="led-number" id="ren-year">----</span>
+            </div>
+
+            <div class="time-unit">
+              <span class="time-label">24 HR</span>
+              <span class="led-number" id="ren-clock">--:--</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </footer>
+
+  <!-- LIVE CLOCK -->
+  <script>
+    function updateRENClock() {
+      const now = new Date();
+      const pad = number => String(number).padStart(2, '0');
+
+      document.getElementById('ren-month').textContent =
+        pad(now.getMonth() + 1);
+
+      document.getElementById('ren-day').textContent =
+        pad(now.getDate());
+
+      document.getElementById('ren-year').textContent =
+        now.getFullYear();
+
+      document.getElementById('ren-clock').textContent =
+        pad(now.getHours()) + ':' + pad(now.getMinutes());
+    }
+
+    updateRENClock();
+    setInterval(updateRENClock, 1000);
+  </script>
+
 </body>
 </html>
