@@ -91,7 +91,7 @@
       text-align: center;
       overflow-wrap: anywhere;
       box-shadow: 0 0 15px rgba(255,48,48,.4);
-      transition: .2s;
+      transition: background .2s, box-shadow .2s;
     }
 
     .rick-button:hover {
@@ -99,11 +99,27 @@
       box-shadow: 0 0 25px var(--rick-red);
     }
 
+    /* CYAN OUTLINE - CHANNEL BUTTON */
+
     .rick-button.secondary {
       background: transparent;
       color: var(--rick-cyan);
       border-color: var(--rick-cyan);
       box-shadow: 0 0 12px rgba(0,234,255,.2);
+    }
+
+    /* RED OUTLINE - YOUTUBE SHORTS BUTTON */
+
+    .rick-latest-links .rick-button.secondary {
+      background: transparent;
+      color: var(--rick-red);
+      border: 2px solid var(--rick-red);
+      box-shadow: 0 0 12px rgba(255,48,48,.35);
+    }
+
+    .rick-latest-links .rick-button.secondary:hover {
+      background: rgba(255,48,48,.12);
+      box-shadow: 0 0 22px rgba(255,48,48,.7);
     }
 
     /* SECTION HEADINGS */
@@ -126,11 +142,12 @@
       margin-bottom: 25px;
     }
 
-    /* VIDEO CARDS */
+    /* SINGLE FEATURED VIDEO */
 
     .rick-video-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
+      grid-template-columns: minmax(0, 420px);
+      justify-content: center;
       gap: 20px;
     }
 
@@ -223,8 +240,9 @@
       }
 
       .rick-video-grid {
-        grid-template-columns: 1fr;
-        gap: 18px;
+        grid-template-columns: minmax(0, 1fr);
+        max-width: 420px;
+        margin: 0 auto;
       }
 
       .rick-section h2 {
@@ -275,7 +293,7 @@
         </p>
       </div>
 
-      <!-- 1. CHANNEL SPOTLIGHT -->
+      <!-- CHANNEL SPOTLIGHT -->
 
       <section class="rick-spotlight">
 
@@ -317,7 +335,7 @@
 
       </section>
 
-      <!-- 2. FEATURED VIDEOS -->
+      <!-- FEATURED VIDEO -->
 
       <section class="rick-section">
 
@@ -328,8 +346,6 @@
         </p>
 
         <div class="rick-video-grid">
-
-          <!-- FEATURED VIDEO 1: YOUTUBE SHORT -->
 
           <article class="rick-video-card">
 
@@ -361,24 +377,11 @@
 
           </article>
 
-          <!-- FEATURED VIDEO 2: COMING SOON -->
-
-          <article class="rick-video-card">
-
-            <div class="rick-video-frame">
-            </div>
-
-            <h3>FEATURED VIDEO 2</h3>
-
-            <p>Coming soon to REN.</p>
-
-          </article>
-
         </div>
 
       </section>
 
-      <!-- 3. LATEST UPLOADS -->
+      <!-- LATEST UPLOADS -->
 
       <section class="rick-section">
 
@@ -468,38 +471,7 @@
           </div>
         </div>
 
-        <!-- PRESENT TIME -->
-
-        <div class="time-row present">
-          <div class="time-heading">PRESENT TIME</div>
-
-          <div class="time-display">
-
-            <div class="time-unit">
-              <span class="time-label">MONTH</span>
-              <span class="led-number" id="ren-month">--</span>
-            </div>
-
-            <div class="time-unit">
-              <span class="time-label">DAY</span>
-              <span class="led-number" id="ren-day">--</span>
-            </div>
-
-            <div class="time-unit">
-              <span class="time-label">YEAR</span>
-              <span class="led-number" id="ren-year">----</span>
-            </div>
-
-            <div class="time-unit">
-              <span class="time-label">24 HR</span>
-              <span class="led-number" id="ren-clock">--:--</span>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
+      </section>
   </footer>
 
   <!-- LIVE CLOCK -->
