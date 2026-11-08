@@ -3,19 +3,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
   <title>Podcasts | Retro Entertainment Network</title>
+
+  <meta name="description"
+        content="Listen to Booking Like A Mark and discover podcasts on the Retro Entertainment Network.">
+
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* =====================================
-       REN PODCASTS - NEON YELLOW THEME
-       ===================================== */
+    /* REN PODCASTS - NEON YELLOW THEME */
+
+    :root {
+      --pod-yellow: #fcfd04;
+      --pod-cyan: #00eaff;
+    }
 
     .podcast-page {
-      padding: 35px 0 55px;
-      min-width: 0;
+      padding: 35px 0 60px;
     }
 
     .podcast-heading {
@@ -24,122 +31,54 @@
     }
 
     .podcast-heading h1 {
-      color: #FCFD04;
+      color: var(--pod-yellow);
       text-shadow:
-        0 0 8px rgba(252,253,4,0.8),
-        0 0 20px rgba(252,253,4,0.45);
+        0 0 8px rgba(252,253,4,.8),
+        0 0 22px rgba(252,253,4,.45);
     }
 
     .podcast-subtitle {
-      font-family: Arial, sans-serif;
-      font-size: 15px;
-      color: #00eaff;
+      color: var(--pod-cyan);
+      font-size: 16px;
       text-align: center;
     }
 
     /* PODCAST CARDS */
 
-    .podcast-grid {
-      display: grid;
-      grid-template-columns: minmax(0,1fr);
-      gap: 22px;
-      max-width: 950px;
-      margin: 0 auto;
-    }
-
-    @media (min-width: 800px) {
-      .podcast-grid {
-        grid-template-columns:
-          minmax(0,1.2fr) minmax(0,0.8fr);
-      }
-    }
-
     .podcast-card {
-      min-width: 0;
-      width: 100%;
-      padding: 22px;
+      max-width: 900px;
+      margin: 0 auto 35px;
+      padding: 25px;
       background: #090914;
-      border: 2px solid #FCFD04;
-      border-radius: 12px;
-      box-shadow:
-        0 0 10px rgba(252,253,4,0.25),
-        0 0 22px rgba(252,253,4,0.10);
+      border: 2px solid var(--pod-yellow);
+      border-radius: 14px;
+      box-shadow: 0 0 20px rgba(252,253,4,.2);
     }
 
     .podcast-card h2 {
-      color: #FCFD04;
-      font-size: 12px;
-      line-height: 1.9;
-      margin: 0 0 22px;
-      text-shadow:
-        0 0 10px rgba(252,253,4,0.65);
+      color: var(--pod-yellow);
+      text-shadow: 0 0 12px rgba(252,253,4,.65);
+      font-size: clamp(12px, 2.5vw, 18px);
     }
 
     .podcast-card p {
-      font-family: Arial, sans-serif;
       font-size: 16px;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
-    /* PODCAST ARTWORK */
+    .podcast-description {
+      max-width: 750px;
+      margin: 20px auto;
+      text-align: center;
+    }
 
     .podcast-artwork {
-      text-align: center;
-      margin: 20px auto;
-    }
-
-    .podcast-artwork img {
       display: block;
-      width: 220px;
+      width: 260px;
       max-width: 100%;
       height: auto;
-      margin: auto;
-      border-radius: 10px;
-    }
-
-    /* SPOTIFY PLAYER */
-
-    .podcast-player {
-      width: 100%;
-      min-width: 0;
-      max-width: 100%;
-      margin: 18px 0;
-      overflow: hidden;
+      margin: 22px auto;
       border-radius: 12px;
-    }
-
-    .podcast-player iframe {
-      display: block;
-      width: 100%;
-      max-width: 100%;
-      min-width: 0;
-      height: 152px;
-      border: 0;
-      border-radius: 12px;
-    }
-
-    /* PODCAST LINKS */
-
-    .podcast-links {
-      list-style: none;
-      padding: 0;
-      margin: 15px 0;
-    }
-
-    .podcast-links li {
-      margin-bottom: 14px;
-    }
-
-    .podcast-links a {
-      color: #00eaff;
-      text-decoration: none;
-      font-family: Arial, sans-serif;
-      overflow-wrap: anywhere;
-    }
-
-    .podcast-links a:hover {
-      color: #FCFD04;
-      text-shadow: 0 0 8px #FCFD04;
     }
 
     /* PODCAST TAGS */
@@ -147,36 +86,109 @@
     .podcast-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 20px;
+      justify-content: center;
+      gap: 10px;
+      margin: 25px auto;
     }
 
-    .podcast-tags span {
-      border: 1px solid #FCFD04;
-      color: #fff;
+    .podcast-tag {
+      display: inline-block;
+      padding: 9px 12px;
+      border: 1px solid var(--pod-yellow);
       border-radius: 20px;
-      padding: 5px 10px;
-      font-family: Arial, sans-serif;
+      color: var(--pod-yellow);
       font-size: 12px;
+      text-align: center;
     }
 
-    /* MOBILE ADJUSTMENTS */
+    /* SPOTIFY PLAYER */
+
+    .podcast-player {
+      width: 100%;
+      max-width: 750px;
+      margin: 25px auto;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .podcast-player iframe {
+      display: block;
+      width: 100%;
+      height: 352px;
+      border: 0;
+      border-radius: 12px;
+    }
+
+    /* BUTTONS */
+
+    .podcast-button-wrap {
+      text-align: center;
+      margin: 25px auto 10px;
+    }
+
+    .podcast-button {
+      display: inline-block;
+      max-width: 100%;
+      padding: 15px 20px;
+      background: var(--pod-yellow);
+      border: 2px solid var(--pod-yellow);
+      border-radius: 8px;
+      color: #000;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 10px;
+      line-height: 1.8;
+      text-decoration: none;
+      text-align: center;
+      overflow-wrap: anywhere;
+      box-shadow: 0 0 15px rgba(252,253,4,.4);
+      transition: background .2s, box-shadow .2s;
+    }
+
+    .podcast-button:hover {
+      background: #fff;
+      box-shadow: 0 0 25px var(--pod-yellow);
+    }
+
+    /* COMING SOON */
+
+    .podcast-coming {
+      text-align: center;
+    }
+
+    .podcast-coming p {
+      max-width: 650px;
+      margin: 18px auto;
+      color: #ddd;
+    }
+
+    /* MOBILE */
 
     @media (max-width: 650px) {
       .podcast-page {
-        padding: 30px 0 45px;
+        padding-top: 25px;
       }
 
       .podcast-card {
         padding: 18px 14px;
       }
 
-      .podcast-card h2 {
-        font-size: 11px;
-      }
-
       .podcast-card p {
         font-size: 15px;
+      }
+
+      .podcast-player iframe {
+        height: 352px;
+      }
+
+      .podcast-button {
+        font-size: 9px;
+        padding: 12px 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .podcast-button {
+        transition: none;
       }
     }
   </style>
@@ -184,19 +196,27 @@
 
 <body>
 
-  <!-- UNIVERSAL REN HEADER -->
+  <!-- REN NAVIGATION -->
 
   <header>
     <nav class="navbar" aria-label="Main navigation">
+
       <a href="index.html">HOME</a>
+
       <a href="rick8bit.html">RICK8BIT</a>
+
       <a href="podcasts.html"
          class="active"
          aria-current="page">PODCASTS</a>
+
       <a href="watch.html">WATCH</a>
-      <a href="news.html">NEWS</a>
-      <a href="games.html">GAMES</a>
-      <a href="links.html">LINKS</a>
+
+      <a href="construction.html">NEWS</a>
+
+      <a href="construction.html">GAMES</a>
+
+      <a href="construction.html">LINKS</a>
+
     </nav>
   </header>
 
@@ -206,104 +226,105 @@
       <!-- PAGE HEADING -->
 
       <div class="podcast-heading">
+
         <h1>PODCASTS</h1>
+
         <p class="podcast-subtitle">
           Wrestling • Football • Retro Stories
         </p>
+
       </div>
 
-      <div class="podcast-grid">
+      <!-- BOOKING LIKE A MARK -->
 
-        <!-- BOOKING LIKE A MARK -->
+      <section class="podcast-card">
 
-        <section class="podcast-card">
+        <h2>BOOKING LIKE A MARK</h2>
 
-          <h2>BOOKING LIKE A MARK</h2>
+        <img
+          src="20250624_172803.jpg"
+          alt="Booking Like A Mark podcast artwork"
+          class="podcast-artwork"
+          onerror="this.style.display='none'">
 
-          <div class="podcast-artwork">
-            <img
-              src="20250624_172803.jpg"
-              alt="Booking Like A Mark podcast artwork"
-              onerror="this.parentElement.style.display='none'"
-            >
-          </div>
+        <div class="podcast-description">
 
           <p>
             Rewriting past storylines. Creating new
             matches and PLEs. Making original gimmicks
-            and characters. It's not just fantasy
-            booking — this is
-            <strong>Booking Like A Mark</strong>.
+            and characters.
           </p>
 
           <p>
-            <strong>Listen on your favorite platform:</strong>
+            It's not just fantasy booking —
+            this is Booking Like A Mark.
           </p>
 
-          <div class="podcast-player">
-            <iframe
-              src="https://open.spotify.com/embed/show/0GhMJNwUJNi4g88QSQVDs7?utm_source=generator"
-              title="Booking Like A Mark Spotify Player"
-              loading="lazy"
-              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-            </iframe>
-          </div>
+        </div>
 
-          <ul class="podcast-links">
-            <li>
-              <a
-                href="https://open.spotify.com/show/0GhMJNwUJNi4g88QSQVDs7"
-                target="_blank"
-                rel="noopener noreferrer">
-                ▶ Spotify – Booking Like A Mark
-              </a>
-            </li>
-          </ul>
+        <!-- PODCAST TOPICS -->
 
-          <div class="podcast-tags">
-            <span>Wrestling</span>
-            <span>Fantasy Booking</span>
-            <span>Alt Timelines</span>
-            <span>PLE Rewrites</span>
-          </div>
+        <div class="podcast-tags">
+          <span class="podcast-tag">Wrestling</span>
+          <span class="podcast-tag">Fantasy Booking</span>
+          <span class="podcast-tag">Alt Timelines</span>
+          <span class="podcast-tag">PLE Rewrites</span>
+        </div>
 
-        </section>
+        <!-- SPOTIFY PLAYER -->
 
-        <!-- MORE SHOWS -->
+        <div class="podcast-player">
 
-        <section class="podcast-card">
+          <iframe
+            src="https://open.spotify.com/embed/show/0GhMJNwUJNi4g88QSQVDs7?utm_source=generator"
+            title="Booking Like A Mark on Spotify"
+            loading="lazy"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+          </iframe>
 
-          <h2>MORE SHOWS COMING</h2>
+        </div>
 
-          <p>
-            The Retro Entertainment Network is growing!
-            From wrestling and alternative football
-            to retro gaming, movies, television, and
-            music, there's always something worth
-            revisiting.
-          </p>
+        <div class="podcast-button-wrap">
 
-          <p>
-            Have a show that fits REN?
-            Reach out through Rick8bit's socials
-            to be considered for a future feature.
-          </p>
+          <a
+            href="https://open.spotify.com/show/0GhMJNwUJNi4g88QSQVDs7"
+            class="podcast-button"
+            target="_blank"
+            rel="noopener noreferrer">
+            LISTEN ON SPOTIFY
+          </a>
 
-          <div class="podcast-tags">
-            <span>Alt Football</span>
-            <span>Retro Gaming</span>
-            <span>Creator Spotlight</span>
-          </div>
+        </div>
 
-        </section>
+      </section>
 
-      </div>
+      <!-- MORE PODCASTS COMING -->
+
+      <section class="podcast-card podcast-coming">
+
+        <h2>MORE SHOWS COMING</h2>
+
+        <p>
+          We're building something special at REN!
+          More shows covering alternative football,
+          retro gaming, creator spotlights, and
+          entertainment nostalgia are on the way.
+        </p>
+
+        <p>
+          Stay tuned as the Retro Entertainment
+          Network continues to grow.
+        </p>
+
+      </section>
+
     </div>
   </main>
 
   <!-- REN TIME CIRCUITS FOOTER -->
 
   <footer>
+
     <section class="ren-time-circuits">
 
       <h2>MOVING FORWARD WHILE LOOKING BACK</h2>
@@ -313,7 +334,10 @@
         <!-- DESTINATION TIME -->
 
         <div class="time-row destination">
-          <div class="time-heading">DESTINATION TIME</div>
+
+          <div class="time-heading">
+            DESTINATION TIME
+          </div>
 
           <div class="time-display">
 
@@ -338,48 +362,62 @@
             </div>
 
           </div>
+
         </div>
 
         <!-- PRESENT TIME -->
 
         <div class="time-row present">
-          <div class="time-heading">PRESENT TIME</div>
+
+          <div class="time-heading">
+            PRESENT TIME
+          </div>
 
           <div class="time-display">
 
             <div class="time-unit">
               <span class="time-label">MONTH</span>
-              <span class="led-number" id="ren-month">--</span>
+              <span class="led-number"
+                    id="ren-month">--</span>
             </div>
 
             <div class="time-unit">
               <span class="time-label">DAY</span>
-              <span class="led-number" id="ren-day">--</span>
+              <span class="led-number"
+                    id="ren-day">--</span>
             </div>
 
             <div class="time-unit">
               <span class="time-label">YEAR</span>
-              <span class="led-number" id="ren-year">----</span>
+              <span class="led-number"
+                    id="ren-year">----</span>
             </div>
 
             <div class="time-unit">
               <span class="time-label">24 HR</span>
-              <span class="led-number" id="ren-clock">--:--</span>
+              <span class="led-number"
+                    id="ren-clock">--:--</span>
             </div>
 
           </div>
+
         </div>
 
       </div>
+
     </section>
+
   </footer>
 
-  <!-- LIVE CLOCK -->
+  <!-- LIVE PRESENT TIME CLOCK -->
 
   <script>
     function updateRENClock() {
+
       const now = new Date();
-      const pad = number => String(number).padStart(2, '0');
+
+      const pad = number =>
+        String(number).padStart(2, '0');
 
       document.getElementById('ren-month').textContent =
         pad(now.getMonth() + 1);
@@ -391,7 +429,8 @@
         now.getFullYear();
 
       document.getElementById('ren-clock').textContent =
-        pad(now.getHours()) + ':' + pad(now.getMinutes());
+        pad(now.getHours()) + ':' +
+        pad(now.getMinutes());
     }
 
     updateRENClock();
