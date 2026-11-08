@@ -1,0 +1,516 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Rick8bit | Retro Entertainment Network</title>
+  <meta name="description"
+        content="Rick8bit on the Retro Entertainment Network. Retro gaming, entertainment, videos and more.">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ====================================
+       RICK8BIT - NEON RED THEME
+    ==================================== */
+
+    :root {
+      --rick-red: #ff3030;
+      --rick-cyan: #00eaff;
+    }
+
+    .rick-page {
+      padding: 35px 0 60px;
+    }
+
+    .rick-heading {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .rick-heading h1 {
+      color: var(--rick-red);
+      text-shadow:
+        0 0 8px rgba(255,48,48,.8),
+        0 0 22px rgba(255,48,48,.45);
+    }
+
+    .rick-subtitle {
+      color: var(--rick-cyan);
+      font-size: 16px;
+      text-align: center;
+    }
+
+    /* CHANNEL SPOTLIGHT */
+
+    .rick-spotlight {
+      max-width: 900px;
+      margin: 0 auto 45px;
+      padding: 25px;
+      background: #090914;
+      border: 2px solid var(--rick-red);
+      border-radius: 14px;
+      box-shadow: 0 0 20px rgba(255,48,48,.2);
+      text-align: center;
+    }
+
+    .rick-logo {
+      display: block;
+      width: 280px;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto 25px;
+      border-radius: 12px;
+    }
+
+    .rick-spotlight p {
+      max-width: 680px;
+      margin: 18px auto;
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    /* YOUTUBE BUTTONS */
+
+    .rick-button {
+      display: inline-block;
+      max-width: 100%;
+      padding: 14px 20px;
+      margin: 12px 5px;
+      background: var(--rick-red);
+      border: 2px solid var(--rick-red);
+      border-radius: 8px;
+      color: white;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 10px;
+      line-height: 1.8;
+      text-decoration: none;
+      text-align: center;
+      overflow-wrap: anywhere;
+      box-shadow: 0 0 15px rgba(255,48,48,.4);
+      transition: .2s;
+    }
+
+    .rick-button:hover {
+      background: #b90000;
+      box-shadow: 0 0 25px var(--rick-red);
+    }
+
+    .rick-button.secondary {
+      background: transparent;
+      color: var(--rick-cyan);
+      border-color: var(--rick-cyan);
+      box-shadow: 0 0 12px rgba(0,234,255,.2);
+    }
+
+    /* SECTION HEADINGS */
+
+    .rick-section {
+      max-width: 950px;
+      margin: 0 auto 50px;
+    }
+
+    .rick-section h2 {
+      color: var(--rick-red);
+      font-size: 14px;
+      text-shadow: 0 0 12px var(--rick-red);
+      margin-bottom: 14px;
+    }
+
+    .rick-section-intro {
+      color: var(--rick-cyan);
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    /* VIDEO CARDS */
+
+    .rick-video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 20px;
+    }
+
+    .rick-video-card {
+      min-width: 0;
+      padding: 12px;
+      background: #090914;
+      border: 2px solid var(--rick-red);
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(255,48,48,.15);
+    }
+
+    .rick-video-card h3 {
+      color: white;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 10px;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    .rick-video-card p {
+      color: #ddd;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    /* RESPONSIVE VIDEO PLAYER */
+
+    .rick-video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #000;
+      border-radius: 8px;
+    }
+
+    .rick-video-frame iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* LATEST UPLOADS */
+
+    .rick-latest {
+      padding: 25px 18px;
+      background: #090914;
+      border: 2px solid var(--rick-red);
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(255,48,48,.15);
+    }
+
+    .rick-latest p {
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .rick-latest-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 650px) {
+      .rick-page {
+        padding-top: 25px;
+      }
+
+      .rick-spotlight {
+        padding: 18px 14px;
+      }
+
+      .rick-spotlight p {
+        font-size: 15px;
+      }
+
+      .rick-video-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+
+      .rick-section h2 {
+        font-size: 12px;
+      }
+
+      .rick-button {
+        font-size: 9px;
+        padding: 12px 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .rick-button {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- UNIVERSAL REN HEADER -->
+
+  <header>
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="index.html">HOME</a>
+      <a href="rick8bit.html"
+         class="active"
+         aria-current="page">RICK8BIT</a>
+      <a href="podcasts.html">PODCASTS</a>
+      <a href="watch.html">WATCH</a>
+      <a href="news.html">NEWS</a>
+      <a href="games.html">GAMES</a>
+      <a href="links.html">LINKS</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="rick-page">
+
+      <!-- PAGE HEADING -->
+
+      <div class="rick-heading">
+        <h1>RICK8BIT</h1>
+        <p class="rick-subtitle">
+          Retro Gaming • Entertainment • Nostalgia
+        </p>
+      </div>
+
+      <!-- 1. CHANNEL SPOTLIGHT -->
+
+      <section class="rick-spotlight">
+
+        <img
+          src="REN-Rick8bit.png"
+          alt="Rick8bit retro television logo"
+          class="rick-logo"
+        >
+
+        <h2>WELCOME TO RICK8BIT</h2>
+
+        <p>
+          Welcome to Rick8bit, where classic gaming,
+          retro entertainment, and nostalgia collide!
+        </p>
+
+        <p>
+          From the games we grew up with to the
+          entertainment we still love today,
+          Rick8bit celebrates the past while
+          creating new memories for the future.
+        </p>
+
+        <a
+          class="rick-button"
+          href="https://www.youtube.com/@rick8bit?sub_confirmation=1"
+          target="_blank"
+          rel="noopener noreferrer">
+          SUBSCRIBE ON YOUTUBE
+        </a>
+
+        <a
+          class="rick-button secondary"
+          href="https://www.youtube.com/@rick8bit"
+          target="_blank"
+          rel="noopener noreferrer">
+          VISIT CHANNEL
+        </a>
+
+      </section>
+
+      <!-- 2. FEATURED VIDEOS -->
+
+      <section class="rick-section">
+
+        <h2>FEATURED VIDEOS</h2>
+
+        <p class="rick-section-intro">
+          Handpicked highlights from Rick8bit.
+        </p>
+
+        <div class="rick-video-grid">
+
+          <!-- FEATURED VIDEO 1 -->
+
+          <article class="rick-video-card">
+
+            <div class="rick-video-frame">
+              <iframe
+                title="Rick8bit featured video one"
+                src="about:blank"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <h3>FEATURED VIDEO 1</h3>
+            <p>Coming soon to REN.</p>
+
+          </article>
+
+          <!-- FEATURED VIDEO 2 -->
+
+          <article class="rick-video-card">
+
+            <div class="rick-video-frame">
+              <iframe
+                title="Rick8bit featured video two"
+                src="about:blank"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <h3>FEATURED VIDEO 2</h3>
+            <p>Coming soon to REN.</p>
+
+          </article>
+
+        </div>
+
+      </section>
+
+      <!-- 3. LATEST UPLOADS -->
+
+      <section class="rick-section">
+
+        <h2>LATEST UPLOADS</h2>
+
+        <p class="rick-section-intro">
+          Catch up on what's new at Rick8bit.
+        </p>
+
+        <div class="rick-latest">
+
+          <h2>FRESH FROM YOUTUBE</h2>
+
+          <p>
+            New videos, shorts, and retro entertainment
+            are always on the way!
+          </p>
+
+          <p>
+            Explore the latest Rick8bit uploads
+            directly on YouTube.
+          </p>
+
+          <div class="rick-latest-links">
+
+            <a
+              class="rick-button"
+              href="https://www.youtube.com/@rick8bit/videos"
+              target="_blank"
+              rel="noopener noreferrer">
+              LATEST VIDEOS
+            </a>
+
+            <a
+              class="rick-button secondary"
+              href="https://www.youtube.com/@rick8bit/shorts"
+              target="_blank"
+              rel="noopener noreferrer">
+              YOUTUBE SHORTS
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+
+  <!-- REN TIME CIRCUITS FOOTER -->
+
+  <footer>
+    <section class="ren-time-circuits">
+
+      <h2>MOVING FORWARD WHILE LOOKING BACK</h2>
+
+      <div class="time-machine">
+
+        <!-- DESTINATION TIME -->
+
+        <div class="time-row destination">
+          <div class="time-heading">DESTINATION TIME</div>
+
+          <div class="time-display">
+
+            <div class="time-unit">
+              <span class="time-label">MONTH</span>
+              <span class="led-number">01</span>
+            </div>
+
+            <div class="time-unit">
+              <span class="time-label">DAY</span>
+              <span class="led-number">01</span>
+            </div>
+
+            <div class="time-unit">
+              <span class="time-label">YEAR</span>
+              <span class="led-number">1985</span>
+            </div>
+
+            <div class="time-unit">
+              <span class="time-label">24 HR</span>
+              <span class="led-number">00:00</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- PRESENT TIME -->
+
+        <div class="time-row present">
+          <div class="time-heading">PRESENT TIME</div>
+
+          <div class="time-display">
+
+            <div class="time-unit">
+              <span class="time-label">MONTH</span>
+              <span class="led-number" id="ren-month">--</span>
+            </div>
+
+            <div class="time-unit">
+              <span class="time-label">DAY</span>
+              <span class="led-number" id="ren-day">--</span>
+            </div>
+
+            <div class="time-unit">
+              <span class="time-label">YEAR</span>
+              <span class="led-number" id="ren-year">----</span>
+            </div>
+
+            <div class="time-unit">
+              <span class="time-label">24 HR</span>
+              <span class="led-number" id="ren-clock">--:--</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </footer>
+
+  <!-- LIVE CLOCK -->
+
+  <script>
+    function updateRENClock() {
+      const now = new Date();
+      const pad = number =>
+        String(number).padStart(2, '0');
+
+      document.getElementById('ren-month').textContent =
+        pad(now.getMonth() + 1);
+
+      document.getElementById('ren-day').textContent =
+        pad(now.getDate());
+
+      document.getElementById('ren-year').textContent =
+        now.getFullYear();
+
+      document.getElementById('ren-clock').textContent =
+        pad(now.getHours()) + ':' +
+        pad(now.getMinutes());
+    }
+
+    updateRENClock();
+    setInterval(updateRENClock, 1000);
+  </script>
+
+</body>
+</html>
