@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Rick8bit | Retro Entertainment Network</title>
+
   <meta name="description"
         content="Rick8bit on the Retro Entertainment Network. Retro gaming, entertainment, videos and more.">
 
@@ -174,6 +175,14 @@
       border: 0;
     }
 
+    /* VERTICAL YOUTUBE SHORT */
+
+    .rick-video-frame.rick-short {
+      aspect-ratio: 9 / 16;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
     /* LATEST UPLOADS */
 
     .rick-latest {
@@ -320,40 +329,47 @@
 
         <div class="rick-video-grid">
 
-          <!-- FEATURED VIDEO 1 -->
+          <!-- FEATURED VIDEO 1: YOUTUBE SHORT -->
 
           <article class="rick-video-card">
 
-            <div class="rick-video-frame">
+            <div class="rick-video-frame rick-short">
               <iframe
-                title="Rick8bit featured video one"
-                src="about:blank"
+                src="https://www.youtube.com/embed/Z_bmWq2KZ2k"
+                title="Latest Rick8bit YouTube Short"
                 loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen>
               </iframe>
             </div>
 
-            <h3>FEATURED VIDEO 1</h3>
-            <p>Coming soon to REN.</p>
+            <h3>LATEST RICK8BIT SHORT</h3>
+
+            <p>
+              Watch the latest from Rick8bit!
+            </p>
+
+            <p>
+              <a
+                href="https://youtube.com/shorts/Z_bmWq2KZ2k"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="color:#00eaff;">
+                Watch on YouTube
+              </a>
+            </p>
 
           </article>
 
-          <!-- FEATURED VIDEO 2 -->
+          <!-- FEATURED VIDEO 2: COMING SOON -->
 
           <article class="rick-video-card">
 
             <div class="rick-video-frame">
-              <iframe
-                title="Rick8bit featured video two"
-                src="about:blank"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen>
-              </iframe>
             </div>
 
             <h3>FEATURED VIDEO 2</h3>
+
             <p>Coming soon to REN.</p>
 
           </article>
