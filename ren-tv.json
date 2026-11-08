@@ -1,0 +1,30 @@
+
+{
+  "updatedAt": null,
+  "channels": [
+    {
+      "handle": "rick8bit",
+      "video": "Z_bmWq2KZ2k",
+      "title": "",
+      "isLive": false
+    },
+    {
+      "handle": "4sidesofthering",
+      "video": "",
+      "title": "",
+      "isLive": false
+    },
+    {
+      "handle": "altfbpanel",
+      "video": "",
+      "title": "",
+      "isLive": false
+    },
+    {
+      "handle": "vikingwaxpress",
+      "video": "",
+      "title": "",
+      "isLive": false
+    }
+  ]
+}
