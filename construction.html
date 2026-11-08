@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Under Construction | Retro Entertainment Network</title>
+
+  <meta name="description"
+    content="Something retro is coming soon to the Retro Entertainment Network.">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* REN UNDER CONSTRUCTION PAGE */
+
+    .construction-page {
+      max-width: 850px;
+      margin: 45px auto 70px;
+      padding: 0 10px;
+      text-align: center;
+    }
+
+    .construction-panel {
+      padding: 45px 20px;
+      background: #090914;
+      border: 3px solid #ffdf00;
+      border-radius: 14px;
+      box-shadow: 0 0 22px rgba(255,223,0,.35);
+    }
+
+    .construction-stripes {
+      height: 24px;
+      margin: 0 auto 35px;
+      background: repeating-linear-gradient(
+        135deg,
+        #ffdf00 0 20px,
+        #111 20px 40px
+      );
+      border-radius: 4px;
+    }
+
+    .construction-icon {
+      font-size: 65px;
+      margin: 10px 0 25px;
+    }
+
+    .construction-panel h1 {
+      color: #ffdf00;
+      font-size: clamp(15px, 4vw, 27px);
+      text-shadow: 0 0 15px #ffdf00;
+    }
+
+    .construction-panel h2 {
+      color: #ff3030;
+      font-size: clamp(12px, 3vw, 19px);
+      text-shadow: 0 0 12px #ff3030;
+      margin: 28px 0;
+    }
+
+    .construction-message {
+      color: #00eaff;
+      font-size: 18px;
+      line-height: 1.8;
+      max-width: 550px;
+      margin: 20px auto 35px;
+    }
+
+    .construction-home {
+      display: inline-block;
+      background: #ffdf00;
+      color: #000;
+      padding: 17px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 10px;
+      line-height: 1.8;
+      box-shadow: 0 0 15px rgba(255,223,0,.5);
+    }
+
+    .construction-home:hover {
+      background: #fff176;
+    }
+
+    @media (max-width: 650px) {
+      .construction-page {
+        margin-top: 25px;
+      }
+
+      .construction-panel {
+        padding: 30px 15px;
+      }
+
+      .construction-message {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- REN NAVIGATION -->
+
+  <header>
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="index.html">HOME</a>
+      <a href="rick8bit.html">RICK8BIT</a>
+      <a href="podcasts.html">PODCASTS</a>
+      <a href="watch.html">WATCH</a>
+      <a href="construction.html">NEWS</a>
+      <a href="construction.html">GAMES</a>
+      <a href="construction.html">LINKS</a>
+    </nav>
+  </header>
+
+  <!-- UNDER CONSTRUCTION -->
+
+  <main>
+    <section class="construction-page">
+
+      <div class="construction-panel">
+
+        <div class="construction-stripes"></div>
+
+        <div class="construction-icon">
+          🚧
+        </div>
+
+        <h1>UNDER CONSTRUCTION</h1>
+
+        <h2>COMING SOON!</h2>
+
+        <p class="construction-message">
+          This part of the Retro Entertainment Network
+          is still loading!
+          <br>
+          <br>
+          We're working behind the scenes to bring
+          you more retro entertainment.
+        </p>
+
+        <a href="index.html" class="construction-home">
+          RETURN TO REN
+        </a>
+
+        <div class="construction-stripes"
+          style="margin:35px auto 0;"></div>
+
+      </div>
+
+    </section>
+  </main>
+
+  <!-- REN TIME CIRCUITS FOOTER -->
+
+  <footer>
+    <section class="ren-time-circuits">
+
+      <h2>MOVING FORWARD WHILE LOOKING BACK</h2>
+
+      <div class="time-machine">
+
+        <!-- DESTINATION TIME -->
+
+        <div class="time-row destination">
+          <div class="time-heading">
+            DESTINATION TIME
+          </div>
+
+          <div class="time-display">
+
+            <div class="time-unit">
+              <span class="time-label">MONTH</span>
+              <span class="led-number">01</span>
+            </div>
+
+            <div class="time-unit">
+              <span class="time-label">DAY</span>
+              <span class="led-number">01</span>
+            </div>
+
+            <div class="time-unit">
+              <span class="time-label">YEAR</span>
+              <span class="led-number">1985</span>
+            </div>
+
+            <div class="time-unit">
+              <span class="time-label">24 HR</span>
+              <span class="led-number">00:00</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- PRESENT TIME -->
+
+        <div class="time-row present">
+          <div class="time-heading">
+            PRESENT TIME
+          </div>
+
+          <div class="time-display">
+
+            <div class="time-unit">
+              <span class="time-label">MONTH</span>
+              <span class="led-number" id="ren-month">--</span>
+            </div>
+
+            <div class="time-unit">
+              <span class="time-label">DAY</span>
+              <span class="led-number" id="ren-day">--</span>
+            </div>
+
+            <div class="time-unit">
+              <span class="time-label">YEAR</span>
+              <span class="led-number" id="ren-year">----</span>
+            </div>
+
+            <div class="time-unit">
+              <span class="time-label">24 HR</span>
+              <span class="led-number" id="ren-clock">--:--</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </footer>
+
+  <!-- LIVE CLOCK -->
+
+  <script>
+    function updateRENClock() {
+      const now = new Date();
+      const pad = number =>
+        String(number).padStart(2, '0');
+
+      document.getElementById('ren-month').textContent =
+        pad(now.getMonth() + 1);
+
+      document.getElementById('ren-day').textContent =
+        pad(now.getDate());
+
+      document.getElementById('ren-year').textContent =
+        now.getFullYear();
+
+      document.getElementById('ren-clock').textContent =
+        pad(now.getHours()) + ':' +
+        pad(now.getMinutes());
+    }
+
+    updateRENClock();
+    setInterval(updateRENClock, 1000);
+  </script>
+
+</body>
+</html>
