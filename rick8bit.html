@@ -8,15 +8,11 @@
   <title>Rick8bit | Retro Entertainment Network</title>
 
   <meta name="description"
-        content="Rick8bit on the Retro Entertainment Network. Retro gaming, entertainment, videos and more.">
+    content="Rick8bit on the Retro Entertainment Network. Retro gaming, entertainment, videos and more.">
 
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* ====================================
-       RICK8BIT - NEON RED THEME
-    ==================================== */
-
     :root {
       --rick-red: #ff3030;
       --rick-cyan: #00eaff;
@@ -33,9 +29,8 @@
 
     .rick-heading h1 {
       color: var(--rick-red);
-      text-shadow:
-        0 0 8px rgba(255,48,48,.8),
-        0 0 22px rgba(255,48,48,.45);
+      text-shadow: 0 0 8px rgba(255,48,48,.8),
+                   0 0 22px rgba(255,48,48,.45);
     }
 
     .rick-subtitle {
@@ -73,7 +68,7 @@
       line-height: 1.8;
     }
 
-    /* YOUTUBE BUTTONS */
+    /* BUTTONS */
 
     .rick-button {
       display: inline-block;
@@ -99,8 +94,6 @@
       box-shadow: 0 0 25px var(--rick-red);
     }
 
-    /* CYAN OUTLINE - CHANNEL BUTTON */
-
     .rick-button.secondary {
       background: transparent;
       color: var(--rick-cyan);
@@ -108,7 +101,7 @@
       box-shadow: 0 0 12px rgba(0,234,255,.2);
     }
 
-    /* RED OUTLINE - YOUTUBE SHORTS BUTTON */
+    /* SHORTS BUTTON - RED OUTLINE */
 
     .rick-latest-links .rick-button.secondary {
       background: transparent;
@@ -142,7 +135,7 @@
       margin-bottom: 25px;
     }
 
-    /* SINGLE FEATURED VIDEO */
+    /* FEATURED SHORT */
 
     .rick-video-grid {
       display: grid;
@@ -174,12 +167,11 @@
       text-align: center;
     }
 
-    /* RESPONSIVE VIDEO PLAYER */
-
     .rick-video-frame {
-      position: relative;
       width: 100%;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 9 / 16;
+      max-width: 320px;
+      margin: 0 auto;
       overflow: hidden;
       background: #000;
       border-radius: 8px;
@@ -190,14 +182,6 @@
       width: 100%;
       height: 100%;
       border: 0;
-    }
-
-    /* VERTICAL YOUTUBE SHORT */
-
-    .rick-video-frame.rick-short {
-      aspect-ratio: 9 / 16;
-      max-width: 320px;
-      margin: 0 auto;
     }
 
     /* LATEST UPLOADS */
@@ -220,6 +204,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
+      align-items: center;
       gap: 10px;
       margin-top: 20px;
     }
@@ -265,7 +250,7 @@
 
 <body>
 
-  <!-- UNIVERSAL REN HEADER -->
+  <!-- UNIVERSAL REN NAVIGATION -->
 
   <header>
     <nav class="navbar" aria-label="Main navigation">
@@ -300,8 +285,7 @@
         <img
           src="REN-Rick8bit.png"
           alt="Rick8bit retro television logo"
-          class="rick-logo"
-        >
+          class="rick-logo">
 
         <h2>WELCOME TO RICK8BIT</h2>
 
@@ -335,34 +319,34 @@
 
       </section>
 
-      <!-- FEATURED VIDEO -->
+      <!-- FEATURED SHORT -->
 
       <section class="rick-section">
 
-        <h2>FEATURED VIDEOS</h2>
+        <h2>FEATURED VIDEO</h2>
 
         <p class="rick-section-intro">
-          Handpicked highlights from Rick8bit.
+          A featured highlight from Rick8bit.
         </p>
 
         <div class="rick-video-grid">
 
           <article class="rick-video-card">
 
-            <div class="rick-video-frame rick-short">
+            <div class="rick-video-frame">
               <iframe
                 src="https://www.youtube.com/embed/Z_bmWq2KZ2k"
-                title="Latest Rick8bit YouTube Short"
+                title="Rick8bit Featured YouTube Short"
                 loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen>
               </iframe>
             </div>
 
-            <h3>LATEST RICK8BIT SHORT</h3>
+            <h3>RICK8BIT SHORT</h3>
 
             <p>
-              Watch the latest from Rick8bit!
+              Watch the latest featured Short!
             </p>
 
             <p>
@@ -401,8 +385,7 @@
           </p>
 
           <p>
-            Explore the latest Rick8bit uploads
-            directly on YouTube.
+            Explore Rick8bit uploads directly on YouTube.
           </p>
 
           <div class="rick-latest-links">
@@ -412,7 +395,7 @@
               href="https://www.youtube.com/@rick8bit/videos"
               target="_blank"
               rel="noopener noreferrer">
-              LATEST VIDEOS
+              VIDEOS
             </a>
 
             <a
@@ -420,7 +403,7 @@
               href="https://www.youtube.com/@rick8bit/shorts"
               target="_blank"
               rel="noopener noreferrer">
-              YOUTUBE SHORTS
+              SHORTS
             </a>
 
           </div>
@@ -444,7 +427,9 @@
         <!-- DESTINATION TIME -->
 
         <div class="time-row destination">
-          <div class="time-heading">DESTINATION TIME</div>
+          <div class="time-heading">
+            DESTINATION TIME
+          </div>
 
           <div class="time-display">
 
@@ -471,10 +456,43 @@
           </div>
         </div>
 
-      </section>
+        <!-- PRESENT TIME -->
+
+        <div class="time-row present">
+          <div class="time-heading">
+            PRESENT TIME
+          </div>
+
+          <div class="time-display">
+
+            <div class="time-unit">
+              <span class="time-label">MONTH</span>
+              <span class="led-number" id="ren-month">--</span>
+            </div>
+
+            <div class="time-unit">
+              <span class="time-label">DAY</span>
+              <span class="led-number" id="ren-day">--</span>
+            </div>
+
+            <div class="time-unit">
+              <span class="time-label">YEAR</span>
+              <span class="led-number" id="ren-year">----</span>
+            </div>
+
+            <div class="time-unit">
+              <span class="time-label">24 HR</span>
+              <span class="led-number" id="ren-clock">--:--</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
   </footer>
 
-  <!-- LIVE CLOCK -->
+  <!-- LIVE PRESENT TIME CLOCK -->
 
   <script>
     function updateRENClock() {
